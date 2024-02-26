@@ -1,5 +1,5 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: [:show, :edit, :destroy]
+  before_action :set_friend, only: [:show, :edit, :update, :destroy]
 
   def index
     @friends = Friend.all
@@ -19,7 +19,22 @@ class FriendsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
 
+  def edit
+  end
+
+  def update
+    @friend.update(task_params)
+    redirect_to friend_path(@task)
+  end
+
+  def destroy
+    @friend.destroy
+    redirect_to friends_path
+  end
+
+  private
 
   def set_friend
     @friend = Friend.find(params[:id])
