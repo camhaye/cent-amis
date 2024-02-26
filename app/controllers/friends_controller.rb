@@ -9,6 +9,7 @@ class FriendsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:id])
     @friend = Friend.new
   end
 
@@ -37,7 +38,7 @@ class FriendsController < ApplicationController
   private
 
   def set_friend
-    @friend = Friend.find(params[:id])
+    @friend = Friend.find(params[:friend_id])
   end
 
   def params_friend

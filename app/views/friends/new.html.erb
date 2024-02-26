@@ -1,0 +1,7 @@
+<%= simple_form_for(@friend) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :location %>
+  <%= f.input :content, :as => :text %>
+  <%= f.input :available, as: :select, collection: [['Yes',true], ['No',false]] %>
+  <%= f.submit %>
+<% end %>

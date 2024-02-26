@@ -1,2 +1,8 @@
-<div class="container"><h1>Bienvenue sur Cent (ou sans) amis !</h1>
-<h2></h2></div>
+<div class="friends"><div class="container"><h1>100 amis</h1>
+<h2>Nos amis à disposition...</h2></div>
+<div class="container d-flex">filtres</div>
+<div class="container d-flex"><div class="friend_card"><% @friends.each do |friend| %>
+<%= friend.name %>
+<% end %>
+</div></div>
+</div>
