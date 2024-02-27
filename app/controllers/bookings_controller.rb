@@ -12,16 +12,19 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = @user.id
     @booking.friend_id = @friend.id
-    @booking.total = @booking.total_price(@booking.start_date, @booking.end_date, @friend.price)
-    @friend.available = false
+    @booking.total = @booking.total_price
+    # @friend.available = false
     if @booking.save
-      redirect_to friends_path()
+      redirect_to friends_path, notice: "Booking confirmed ! Your total price : #{@booking.total}"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  
+  def edit
+
+  end
+
   private
 
   def set_user
