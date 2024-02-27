@@ -1,0 +1,10 @@
+<h1>My friends List</h1>
+
+
+<div class='container'>
+  <% @friends.each do |friend| %>
+    <li><%= friend.first_name %>
+    <%= friend.content %>
+    <%= friend.available %></li>
+  <% end %>
+</div>
