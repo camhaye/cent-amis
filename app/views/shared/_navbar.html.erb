@@ -22,10 +22,10 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mes ami.e.s", "/my_friends", class: "dropdown-item" %>
-              <%= link_to "Mes ami.e.s réservé.e.s", "/my_booked_friends", class: "dropdown-item" %>
-              <%= link_to "Mes réservations", "/my_bookings", class: "dropdown-item" %>
-              <%= link_to "Paramètres", "/my_booked_friends", class: "dropdown-item" %>
+              <%= link_to "Mes ami.e.s", dashboard_my_friends_path, class: "dropdown-item" %>
+              <%= link_to "Mes ami.e.s réservé.e.s", dashboard_my_booked_friends_path, class: "dropdown-item" %>
+              <%= link_to "Mes réservations", dashboard_my_bookings_path, class: "dropdown-item" %>
+              <%= link_to "Paramètres", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
