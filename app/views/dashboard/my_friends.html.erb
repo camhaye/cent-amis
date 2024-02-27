@@ -1,0 +1,13 @@
+<h1>My friends</h1>
+
+
+<div class='container'>
+  <% @friends.each do |friend| %>
+    <li>
+      <div class='card-category' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        <%= friend.first_name %>
+      </div>
+        <%= friend.content %> | <%= friend.price %>€
+    </li>
+  <% end %>
+</div>

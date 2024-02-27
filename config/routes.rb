@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:show, :edit, :update, :destroy]
+  get 'dashboard/my_friends', to: 'dashboard#my_friends'
+  get 'dashboard/my_bookings', to: 'dashboard#my_bookings'
+  get 'dashboard/my_booked_friends', to: 'dashboard#my_booked_friends'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
