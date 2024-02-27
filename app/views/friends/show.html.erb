@@ -4,7 +4,7 @@
 
 
 <div><h4><%= @friend.good_at %></h4>
-<a class="btn btn-primary">Book this friend !</a></div></div>
+<%= link_to "Book this friend !", new_friend_booking_path(@friend), class: "btn btn-primary" %></div></div>
 
 
 <div class="container d-flex justify-content-between flex-wrap" data-controller="toggle"><a data-action="click->toggle#fire" class="btn btn-success">Edit</a>
