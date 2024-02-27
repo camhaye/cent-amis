@@ -1,0 +1,5 @@
+<h1>My booked friends</h1>
+
+<% @friends.each do |friend| %>
+  <li><% friend.first_name %> |  <%= friend.content %> | <%= friend.booking.start_date %></li>
+<% end %>
