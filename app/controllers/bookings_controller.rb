@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   private
-
+  
   def set_friend
     @friend = Friend.find(params[:friend_id])
   end
