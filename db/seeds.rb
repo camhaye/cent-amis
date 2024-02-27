@@ -69,7 +69,7 @@ Friend.create(first_name: "Camille",
 
  Friend.create(first_name: "Romain",
   location: "Bordeaux",
-  content: "Il aime la compétition, coder et jouer aux jeux vidés. Il apporte la fraicheur et les blagues douteuses",
+  content: "Il aime la compétition, coder et jouer aux jeux vidés. Il apporte la fraicheur et les blagues douteuses.",
   available: true,
   gender: 'Homme cis',
   age: 29,
