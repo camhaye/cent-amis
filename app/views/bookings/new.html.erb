@@ -1,6 +1,7 @@
 <h1> Create a booking</h1>
 
-<%= simple_form_for @user do |f| %>
+  <%= raise %>
+<%= simple_form_for [@friend, @user, @booking] do |f| %>
   <%= f.input :username %>
   <%= f.input :password %>
   <%= f.button :submit %>
