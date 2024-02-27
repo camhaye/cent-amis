@@ -1,9 +1,10 @@
-<div class="friend"><div class="container"><h2><%= @friend.first_name %></h2>
+<div class="container d-flex"><h2><%= @friend.first_name %></h2>
 
-<%= image_tag @friend.image_url, alt: @friend.first_name, class: "avatar" if @friend.image_url %>
+<%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
 
 
-<a class="btn btn-primary">Book this friend !</a></div>
+<div><h4><%= @friend.good_at %></h4>
+<a class="btn btn-primary">Book this friend !</a></div></div>
 
 
 <div class="container d-flex justify-content-between flex-wrap" data-controller="toggle"><a data-action="click->toggle#fire" class="btn btn-success">Edit</a>
@@ -21,6 +22,5 @@
   <%= f.input :price, as: :numeric %>
   <%= f.submit %>
 <% end %>
-</div>
 </div>
 </div>
