@@ -2,6 +2,6 @@
 
 <div class="container mt-3">
 <% @friends.each do |friend| %>
-  <li ><% friend.first_name %> |  <%= friend.content %> | <%= friend.booking.start_date %></li>
+  <li ><% friend.first_name %> |  <%= friend.content %> | <%= friend.booking.start_date %> | <%= friend.booking.end_date %></li>
 <% end %>
 </div>
