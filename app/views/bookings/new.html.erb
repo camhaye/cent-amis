@@ -1,8 +1,12 @@
 <h1> Create a booking</h1>
 
-  <%= raise %>
-<%= simple_form_for [@friend, @user, @booking] do |f| %>
-  <%= f.input :username %>
-  <%= f.input :password %>
-  <%= f.button :submit %>
-<% end %>
+
+<div class="container mt-3">
+  <div class="row">
+    <%= simple_form_for [@friend, @booking] do |f| %>
+      <%= f.input :start_date, as: :date, html5: true %>
+      <%= f.input :end_date, as: :date, html5: true   %>
+      <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
