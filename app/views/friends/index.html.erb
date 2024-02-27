@@ -1,8 +1,10 @@
 <div class="friends"><div class="container"><h1>100 amis</h1>
 <h2>Nos amis à disposition...</h2></div>
 <div class="container d-flex">filtres</div>
-<div class="container d-flex"><div class="friend_card"><% @friends.each do |friend| %>
+<div class="container d-flex flex-wrap" style="gap:10px"><% @friends.each do |friend| %>
+<div class="friend_card">
+<%= image_tag friend.image_url, alt: friend.first_name, class: "icon" %>
 <%= friend.first_name %>
-<% end %>
-</div></div>
+</div>
+<% end %></div>
 </div>
