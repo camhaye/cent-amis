@@ -1,13 +1,33 @@
-<div class="container d-flex"><h2><%= @friend.first_name %></h2>
+<div class="container d-flex flex-wrap">
+  <h1 class="d-flex justify-content-between align-items-center">
+    <%= @friend.first_name %>
+    <div class="h3" style="margin: 0px;color:#9b9b9b">
+      <%= @friend.price %>
+      <i class="fa-solid fa-beer-mug-empty"></i> / jour
+    </div>
+  </h1>
 
-<%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
+  <%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
+  <div class="infos">
+    <h4>
+      Le.a meilleur.e pour: <%= @friend.good_at.downcase %>
+    </h4>
+    <p>
+      <%= @friend.content %></br></br>
+      <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
+      <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
+      <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
+    </p>
+    <center>
+      <%= link_to "Book this friend !", new_friend_booking_path(@friend), class: "btn btn-primary" %>
+    </center>
+  </div>
+  <div class="mt-1"><h3>Proposé.e par <%= @friend.user.pseudonyme %></h3>
+  </div>
+</div>
 
 
-<div><h4><%= @friend.good_at %></h4>
-<%= link_to "Book this friend !", new_friend_booking_path(@friend), class: "btn btn-primary" %></div></div>
-
-
-<div class="container d-flex justify-content-between flex-wrap" data-controller="toggle"><a data-action="click->toggle#fire" class="btn btn-success">Edit</a>
+<div class="container d-flex justify-content-around flex-wrap mt-2" data-controller="toggle"><a data-action="click->toggle#fire" class="btn btn-success">Edit</a>
 <%= link_to "Delete", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" %>
 <div class="d-none" style="width:100%" data-toggle-target="togglableElement">
 <%= simple_form_for @friend do |f| %>
