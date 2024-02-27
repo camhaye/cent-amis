@@ -1,5 +1,5 @@
 <h1>My bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <li><%= booking.friend_first_name %></li>
+  <li><%= booking.friend_first_name %><%= booking.end_date %></li>
 <% end %>
