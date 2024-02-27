@@ -9,7 +9,7 @@
       <%= link_to friend_path(friend), class: "friend_card" do %>
         <%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
         <h5><%= friend.first_name %></h5>
-        <div class="info"><i class="fa-solid fa-location-pin"></i> <%= friend.location %></div>
+        <div class="info"><i class="fa-solid fa-map-pin"></i> <%= friend.location %></div>
         <div class="info" style="text-align:right"><%= friend.price %> <i class="fa-solid fa-beer-mug-empty"></i></div>
       <% end %>
     <% end %>
