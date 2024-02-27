@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
   def set_user
     @user = User.find(current_user.id)
   end
+  
   def set_friend
     @friend = Friend.find(params[:friend_id])
   end
