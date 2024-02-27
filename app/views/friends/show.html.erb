@@ -1,0 +1,26 @@
+<div class="container d-flex"><h2><%= @friend.first_name %></h2>
+
+<%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
+
+
+<div><h4><%= @friend.good_at %></h4>
+<a class="btn btn-primary">Book this friend !</a></div></div>
+
+
+<div class="container d-flex justify-content-between flex-wrap" data-controller="toggle"><a data-action="click->toggle#fire" class="btn btn-success">Edit</a>
+<%= link_to "Delete", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" %>
+<div class="d-none" style="width:100%" data-toggle-target="togglableElement">
+<%= simple_form_for @friend do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :location %>
+  <%= f.input :content, :as => :text %>
+  <%= f.input :available, as: :select, collection: [['Yes',true], ['No',false]] %>
+  <%= f.input :gender %>
+  <%= f.input :age, as: :numeric %>
+  <%= f.input :good_at %>
+  <%= f.input :image_url %>
+  <%= f.input :price, as: :numeric %>
+  <%= f.submit %>
+<% end %>
+</div>
+</div>

@@ -1,8 +1,8 @@
-<%= simple_form_for(@friend) do |f| %>
+<%= simple_form_for @friend do |f| %>
   <%= f.input :first_name %>
   <%= f.input :location %>
-  <%= f.input :content, :as => :text %>
-  <%= f.input :available, as: :select, collection: [['Yes',true], ['No',false]] %>
   <%= f.input :gender %>
+  <%= f.input :age, as: :numeric %>
+  <%= f.input :price, as: :numeric %>
   <%= f.submit %>
 <% end %>

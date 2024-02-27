@@ -1,5 +1,6 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: [:show, :edit, :update, :destroy]
+  before_action :set_friend, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
     @friends = Friend.all
@@ -9,12 +10,12 @@ class FriendsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:id])
     @friend = Friend.new
   end
 
   def create
-    @friend = Friend.new(params_friend)
+    @friend = Friend.new(friend_params)
+    @friend.user = current_user
     if @friend.save
       redirect_to friend_path(@friend)
     else
@@ -22,12 +23,9 @@ class FriendsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
-    @friend.update(task_params)
-    redirect_to friend_path(@task)
+    @friend.update(friend_params)
+    redirect_to friend_path(@friend)
   end
 
   def destroy
@@ -38,10 +36,10 @@ class FriendsController < ApplicationController
   private
 
   def set_friend
-    @friend = Friend.find(params[:friend_id])
+    @friend = Friend.find(params[:id])
   end
 
-  def params_friend
-    params.require(:friend).permit(:name, )
+  def friend_params
+    params.require(:friend).permit(:first_name, :location, :content, :available, :gender, :age, :good_at, :price, :image_url)
   end
 end
