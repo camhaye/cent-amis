@@ -1,20 +1,24 @@
-<h1 class=" text-center my-3"> <%= @friend.first_name %> - reservation</h1>
+<div class="container text-center my-3">
+  <h1 class=" text-center my-3"> <%= @friend.first_name %> - reservation</h1>
+  <h4>Localisation : <%= @friend.location %></h4>
+</div>
+
 <div class="container text-center">
   <div class="row">
     <div class="col-3 p-3">
-      <%= image_tag("profil_picture.png", :alt => "Friend picture",  class:"friend-avatar") %>
-    <h2 class="mb-3"> Friend price : <%= @friend.price %> <i class="fa-solid fa-beer-mug-empty"></i> / day </h2>
+      <%= image_tag(@friend.image_url, :alt => "Friend picture",  class:"friend-avatar pb-3") %>
+    <h6 class="mb-3"> Friend price : <%= @friend.price %> <i class="fa-solid fa-beer-mug-empty"></i> / day </h6>
     </div>
-      
+
     <div class="col p-3">
-    <h4>Localisation : <%= @friend.location %></h4>
     <p>Ce que j'aime faire : <%= @friend.content %></p>
     <p>Je suis bon pour : <%= @friend.good_at %></p>
     <p>Mon âge: <%= @friend.age %></p>
     <p><%= @friend.gender %></p>
     </div>
   </div>
-  <div class="containers">
+  <div class="containers d-flex justify-content-center">
+    <div class="row col-6 p-2">
     <%= simple_form_for [@friend, @booking] do |f| %>
       <%= f.input :start_date, as: :date, html5: true %>
       <%= f.input :end_date, as: :date, html5: true   %>
