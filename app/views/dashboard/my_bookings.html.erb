@@ -1,5 +1,31 @@
-<h1>My bookings</h1>
+<div class="container d-flex flex-wrap">
+  <h1>Réservations</h1>
+</div>
 
-<% @bookings.each do |booking| %>
-  <li><%= booking.friend_first_name %><%= booking.end_date %></li>
-<% end %>
+<div class="row">
+  <div class="col-8">
+  <h3>Mes réservations</h3>
+    <div class="container d-flex p-2">
+      <ul>
+        <% @bookings.each do |booking|  %>
+          <li>
+            <%# <%= image_tag @friend.image_url, alt: @friend.first_name, class: "icon" %>
+            <%= booking.friend.first_name %>
+            <%= booking.start_date %>
+            <%= booking.total_price %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="col-4">
+  <h3>Mes demandes de réservation</h3>
+          <div>
+            <button type="button" class="btn btn-success">Confirmer</button>
+            <button type="button" class="btn btn-warning">Pending</button>
+            <button type="button" class="btn btn-danger">Reject</button>
+          </div>
+  </div>
+</div>

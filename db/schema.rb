@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_115336) do
     t.bigint "friend_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["friend_id"], name: "index_bookings_on_friend_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
