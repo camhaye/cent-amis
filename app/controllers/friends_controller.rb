@@ -7,6 +7,8 @@ class FriendsController < ApplicationController
   end
 
   def show
+    @reviews = @friend.reviews
+    @total = Review.total_rating(@reviews)
   end
 
   def new

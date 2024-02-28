@@ -9,12 +9,17 @@
 #   end
 
 
-puts 'Generate user'
+puts 'D database'
+
+User.destroy_all
+
+puts 'G user'
 
 User.create(pseudonyme: "Admin",
   email: "admin@mail.fr",
   password: 'password',
-  password_confirmation: 'password')
+  password_confirmation: 'password',
+  image_url: "https://i.imgur.com/rBvxcII.jpeg")
 User.create(pseudonyme: "Thomas",
   email: "thomas@mail.fr",
   password: 'password',
