@@ -9,7 +9,6 @@
       <ul>
         <% @bookings.each do |booking|  %>
           <li>
-            <%= image_tag @friend.image_url, alt: @friend.first_name, class: "icon" %>
             <%= booking.friend.first_name %>
             <%= booking.start_date %>
             <%= booking.total_price %>
