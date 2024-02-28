@@ -23,6 +23,7 @@
     <h3>Mes demandes de réservation</h3>
     <% @pending_bookings.each do |booking|%>
       <% if booking.status == "pending" %>
+      <%= booking.friend.id %> -
           <%= booking.friend.first_name %>
       <% else  %>
           <%= "No pending booking yet !" %>
