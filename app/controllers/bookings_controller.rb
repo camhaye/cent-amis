@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking.user_id = @user.id
     @booking.friend_id = @friend.id
     @booking.total = @booking.total_price
-    
     if @booking.save
       redirect_to dashboard_my_bookings_path, notice: "Booking confirmed ! Your total price : #{@booking.total}"
     else
