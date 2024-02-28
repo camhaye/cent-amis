@@ -35,8 +35,8 @@
     <div class="col-3 p-3 ">
       <h2 class="mb-3"> Friend price : <%= @friend.price %> € / day </h2>
       <%= simple_form_for [@friend, @booking],  data: { controller: "datepicker" } do |f| %>
-        <%= f.input :start_date, as: :string, placeholder: "Select Date", input_hmtl: { "data-datepicker-target": "openingDate" }%>
-        <%= f.input :end_date, as: :string, placeholder: "Select Date", input_hmtl: { "data-datepicker-target": "endingDate" }%>
+        <%= f.input :start_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" => "openingDate" } } %>
+        <%= f.input :end_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" => "endingDate" } } %>
         <%= f.submit "Submit booking", class: "btn btn-primary" %>
       <% end %>
     </div>

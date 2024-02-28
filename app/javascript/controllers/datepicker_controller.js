@@ -6,9 +6,10 @@ export default class extends Controller {
   static targets =["openingDate", "endingDate"]
 
   connect() {
-    console.log(this.openingDate)
-    console.log(this.endingDate)
-    flatpickr(this.openingDate,
+    console.log("coucou")
+    console.log(this.openingDateTarget)
+    console.log(this.endingDateTarget)
+    flatpickr(this.openingDateTarget,
       {
         dateFormat: "Y-m-d",
         disable: [
@@ -23,7 +24,7 @@ export default class extends Controller {
         ]
       }
     ),
-      flatpickr(this.endingDate,
+      flatpickr(this.endingDateTarget,
       {
         dateFormat: "Y-m-d",
         disable: [
