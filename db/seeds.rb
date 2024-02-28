@@ -126,10 +126,10 @@ friend1 = Friend.create!(first_name: "Camille",
 
   Review.create!(title: "nice",
     booking: booking1,
-    status: "no ice",
+    content: "no ice",
     total: 4)
 
   Review.create!(title: "yeah",
     booking: booking1,
-    status: "yeaaaaaay",
+    content: "yeaaaaaay",
     total: 3)
