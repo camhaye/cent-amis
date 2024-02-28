@@ -127,9 +127,9 @@ friend1 = Friend.create!(first_name: "Camille",
   Review.create!(title: "nice",
     booking: booking1,
     content: "no ice",
-    total: 4)
+    rating: 4)
 
   Review.create!(title: "yeah",
     booking: booking1,
     content: "yeaaaaaay",
-    total: 3)
+    rating: 3)
