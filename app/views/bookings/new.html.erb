@@ -1,37 +1,24 @@
-<div class="row justify-content-between align-items-center">
-  <div class="col-8">
-    <div class="container d-flex flex-wrap">
-      <h1 class="d-flex justify-content-between align-items-center">
-        <%= @friend.first_name %>
-        <div class="h3" style="margin: 0px;color:#9b9b9b">
-          <%= @friend.price %>
-          <i class="fa-solid fa-beer-mug-empty"></i> / jour
-        </div>
-      </h1>
-
-      <%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
-      <div class="infos">
-        <h4>
-          Le.a meilleur.e pour: <%= @friend.good_at.downcase %>
-        </h4>
-        <p>
-          <%= @friend.content %></br></br>
-          <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
-          <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
-          <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
-        </p>
-
-      </div>
-      <div class="mt-1"><h3>Proposé.e par <%= @friend.user.pseudonyme %></h3>
-      </div>
+<h1 class="my-3"> Friend reservation</h1>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-2 p-3">
+      <img src="app/assets/images/logo.png" alt="Friend_picture", class="img-thumbnail rounded">
     </div>
-  </div>
-    <div class="row col-3 p-2 me-2 text-center">
-    <%= simple_form_for [@friend, @booking], data: { controller: "datepicker" } do |f| %>
-      <%= f.input :start_date, as: :string, placeholder: "Select Date",input_html: { data: { datepicker_target: "openingDate"} } %>
-      <%= f.input :end_date, as: :string,placeholder: "Select Date", input_html: { data: { datepicker_target: "endingDate"} }   %>
-      <%= f.submit "Submit booking", class: "btn btn-primary" %>
+    <div class="col p-3">
+    <h2><%= @friend.first_name%></h2>
+    <h4>Localisation : <%= @friend.location %></h4>
+    <p>Ce que j'aime faire : <%= @friend.content %></p>
+    <p>Je suis bon pour : <%= @friend.good_at %></p>
+    <p>Mon âge: <%= @friend.age %></p>
+    <p><%= @friend.gender %></p>
+    </div>
+    <div class="col-3 p-3">
+      <h2 class="mb-3"> Friend price : <%= @friend.price %> € / day </h2>
+      <%= simple_form_for [@friend, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true   %>
+        <%= f.submit "Submit booking", class: "btn btn-primary" %>
       <% end %>
-  </div>
+    </div>
   </div>
 </div>
