@@ -123,10 +123,5 @@ friend6 = Friend.create!(first_name: "Anne-Cécile",
     end_date: '2024-03-19',
     user: user3,
     friend: friend2,
-    total: 80)
-
-  Booking.create!(start_date: '2024-03-18',
-    end_date: '2024-03-19',
-    user: user4,
-    friend: friend3,
+    status: "pending",
     total: 80)
