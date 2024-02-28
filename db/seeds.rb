@@ -87,7 +87,6 @@ friend1 = Friend.create!(first_name: "Camille",
   image_url: "https://i.imgur.com/qzchOUX.jpeg",
   user: user1)
 
-
  friend5 = Friend.create!(first_name: "Jonathan",
   city: "Bordeaux",
   location: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux",
@@ -100,8 +99,7 @@ friend1 = Friend.create!(first_name: "Camille",
   image_url: "https://i.imgur.com/alwDgX8.jpeg",
   user: user1)
 
-
-friend6 = Friend.create!(first_name: "Anne-Cécile",
+  friend6 = Friend.create!(first_name: "Anne-Cécile",
   city: "Saint-André-de-Cubzac",
   location: "48 Avenue de la République, 33240 Saint-André-de-Cubzac",
   content: "Elle aime et pratique la musique, boire des bières et régler les soucis de code. Elle apporte la sagesse et la communication.",
@@ -126,12 +124,12 @@ friend6 = Friend.create!(first_name: "Anne-Cécile",
     status: "pending",
     total: 80)
 
-  Review.create!(title: "nice"
+  Review.create!(title: "nice",
     booking: booking1,
     status: "no ice",
     total: 4)
 
-  Review.create!(title: "yeah"
+  Review.create!(title: "yeah",
     booking: booking1,
     status: "yeaaaaaay",
     total: 3)
