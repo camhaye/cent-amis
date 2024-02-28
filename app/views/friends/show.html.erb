@@ -1,5 +1,5 @@
 <div class="container d-flex flex-wrap">
-  <h1 class="d-flex justify-content-between align-items-center">
+  <h1 class="d-flex justify-content-between align-items-center m-4">
     <%= @friend.first_name %>
     <div class="h3" style="margin: 0px;color:#9b9b9b">
       <%= @friend.price %>
@@ -10,10 +10,10 @@
   <%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
   <div class="infos">
     <h4>
-      Le.a meilleur.e pour: <%= @friend.good_at.downcase %>
+      <%= @total if @total %> <i class="fa-solid fa-star"></i> Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %>
     </h4>
     <p>
-      <%= @friend.content %></br>
+      <%= @friend.content if @friend.content %></br>
       <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
       <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
       <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
@@ -22,7 +22,7 @@
       <%= link_to "Book this friend !", new_friend_booking_path(@friend), class: "btn btn-primary" %>
     </center>
   </div>
-  <div class="mt-1"><h3>Proposé.e par <%= @friend.user.pseudonyme %></h3>
+  <div class="mt-2"><h3><%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %> proposé.e par <%= @friend.user.pseudonyme %></h3>
   </div>
 </div>
 
@@ -45,8 +45,7 @@
 </div>
 </div>
 
-<div class="container"><% @friend.reviews.each do |review| %>
-<%= review.title %>
-<%= review.content %>
-<%= review.rating %>/5
+<div class="container bg-light"><% @friend.reviews.each do |review| %>
+<h5 class="d-flex justify-content-between mt-3"><%= review.title %> <div><%= review.rating %>/5</div></h5>
+<%= review.content %></br>
 <% end %></div>
