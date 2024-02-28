@@ -6,12 +6,9 @@ class DashboardController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(user_id: current_user.id)
+    @user = current_user
+    @bookings = Booking.where(user_id: current_user)
   end
-
-  #def validate
-    # ajouter booléen
-  #end
 
   def my_booked_friends
     @friends = Friend.where(available: 'false')

@@ -1,7 +1,9 @@
 <div class="user-friends">
   <div class="container d-flex" content-align="center">
     <h1>My friends</h1>
-  </div>
+<%= link_to "Créer un ami", new_friend_path(), class:"button btn-primary" %>
+
+</div>
   <div class="container d-flex flex-wrap" style="gap:10px">
     <% @friends.each do |friend| %>
       <%= link_to friend_path(friend), class: "friend_card" do %>
