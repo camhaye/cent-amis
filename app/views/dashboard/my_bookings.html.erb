@@ -8,7 +8,7 @@
     <div class="container d-flex p-2">
       <ul>
         <% @bookings.each do |booking|  %>
-          <li>
+          <li><%= booking.friend.li %>
             <%= booking.friend.first_name %>
             <%= booking.start_date %>
             <%= booking.total_price %>
@@ -23,6 +23,7 @@
     <h3>Mes demandes de réservation</h3>
     <% @pending_bookings.each do |booking|%>
       <% if booking.status == "pending" %>
+      <%= booking.friend.id %> -
           <%= booking.friend.first_name %>
       <% else  %>
           <%= "No pending booking yet !" %>
