@@ -27,9 +27,9 @@
     </div>
   </div>
     <div class="row col-3 p-2 me-2 text-center">
-    <%= simple_form_for [@friend, @booking] do |f| %>
-      <%= f.input :start_date, as: :date, html5: true %>
-      <%= f.input :end_date, as: :date, html5: true   %>
+    <%= simple_form_for [@friend, @booking], data: { controller: "datepicker" } do |f| %>
+      <%= f.input :start_date, as: :string, placeholder: "Select Date",input_html: { data: { datepicker_target: "openingDate"} } %>
+      <%= f.input :end_date, as: :string,placeholder: "Select Date", input_html: { data: { datepicker_target: "endingDate"} }   %>
       <%= f.submit "Submit booking", class: "btn btn-primary" %>
       <% end %>
   </div>
