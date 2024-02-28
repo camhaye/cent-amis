@@ -4,6 +4,10 @@
     <h2>Nos amis à disposition...</h2>
   </div>
   <div class="container d-flex">filtres</div>
+  <div class="container"><div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div></div>
   <div class="container d-flex flex-wrap" style="gap:10px">
     <% @friends.each do |friend| %>
       <%= link_to friend_path(friend), class: "friend_card" do %>
