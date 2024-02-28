@@ -7,7 +7,8 @@ class FriendsController < ApplicationController
     @markers = @friends.geocoded.map do |friend|
       {
         lat: friend.latitude,
-        lng: friend.longitude
+        lng: friend.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {friend: friend})
       }
     end
   end
@@ -48,6 +49,6 @@ class FriendsController < ApplicationController
   end
 
   def friend_params
-    params.require(:friend).permit(:first_name, :location, :content, :available, :gender, :age, :good_at, :price, :image_url)
+    params.require(:friend).permit(:first_name, :city, :location, :content, :available, :gender, :age, :good_at, :price, :image_url)
   end
 end
