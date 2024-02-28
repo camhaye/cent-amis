@@ -5,6 +5,7 @@ class Friend < ApplicationRecord
 
   validates :first_name, presence: true
   validates :location, presence: true
+  validates :city, presence: true
   validates :age, presence: true
   validates :gender, presence: true
   validates :price, presence: true
