@@ -13,7 +13,7 @@
       Le.a meilleur.e pour: <%= @friend.good_at.downcase %>
     </h4>
     <p>
-      <%= @friend.content %></br>
+      <%= @friend.content %></br></br>
       <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
       <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
       <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
@@ -44,9 +44,3 @@
 <% end %>
 </div>
 </div>
-
-<div class="container"><% @friend.reviews.each do |review| %>
-<%= review.title %>
-<%= review.content %>
-<%= review.rating %>/5
-<% end %></div>
