@@ -10,10 +10,10 @@
   <%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
   <div class="infos">
     <h4>
-      <%= @total %> <i class="fa-solid fa-star"></i> Le.a meilleur.e pour: <%= @friend.good_at.downcase %>
+      <%= @total if @total %> <i class="fa-solid fa-star"></i> Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %>
     </h4>
     <p>
-      <%= @friend.content %></br>
+      <%= @friend.content if @friend.content %></br>
       <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
       <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
       <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
