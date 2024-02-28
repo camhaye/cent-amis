@@ -1,0 +1,6 @@
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content, :as => :text %>
+  <%= f.input :rating, as: :select, collection: 0..5 %>
+  <%= f.submit %>
+<% end %>
