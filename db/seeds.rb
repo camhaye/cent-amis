@@ -37,7 +37,8 @@ puts 'User generated'
 
 puts 'Generate Friends'
 friend1 = Friend.create!(first_name: "Camille",
-  location: "Toulouse",
+  city: "Toulouse",
+  location: "3 place Saint-Sernin, 31000 Toulouse",
   content: "Elle aime la littérature, enseigner et passer des heures à regarder des films. Elle apporte la joie, la bonne humeur (ish) et les blagues bizarres.",
   gender: "Femme cis",
   available: true,
@@ -49,7 +50,8 @@ friend1 = Friend.create!(first_name: "Camille",
 
 
  friend2 = Friend.create!(first_name: "Bastien",
-  location: "Bayonne",
+  city: "Bayonne",
+  location: "Quai Dominique Roquebert, 64100 Bayonne",
   content: "Il aime le surf, le pingpong (en ce moment et quand il gagne), la musique et sortir le soir. Il apporte les bières, la joie de vivre et les blagues de beauf.",
   available: true,
   gender: 'Homme cis',
@@ -61,6 +63,7 @@ friend1 = Friend.create!(first_name: "Camille",
 
 
  friend3 = Friend.create!(first_name: "Thomas",
+  city: "Bordeaux",
   location: "Bordeaux",
   content: "Il aime les sports d'eau vive, passer du temps avec ses proches et voyager. Il apporte la sérénité, la bonne humeur et s'illustre dans l'humour pince-sans-rire.",
   available: true,
@@ -73,7 +76,8 @@ friend1 = Friend.create!(first_name: "Camille",
 
 
  friend4 = Friend.create!(first_name: "Romain",
-  location: "Bordeaux",
+  city: "Bordeaux",
+  location: "Place de la Comédie, 33000 Bordeaux",
   content: "Il aime la compétition, coder et jouer aux jeux vidés. Il apporte la fraicheur et les blagues douteuses.",
   available: true,
   gender: 'Homme cis',
@@ -85,7 +89,8 @@ friend1 = Friend.create!(first_name: "Camille",
 
 
  friend5 = Friend.create!(first_name: "Jonathan",
-  location: "Bordeaux",
+  city: "Bordeaux",
+  location: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux",
   content: "Il aime la géologie, enseigner, voyager et passer du temps avec ses proches. Il apporte les bons conseils et fait un excellent good cop.",
   available: true,
   gender: 'Homme cis',
@@ -97,7 +102,8 @@ friend1 = Friend.create!(first_name: "Camille",
 
 
 friend6 = Friend.create!(first_name: "Anne-Cécile",
-  location: "Bordeaux",
+  city: "Saint-André-de-Cubzac",
+  location: "48 Avenue de la République, 33240 Saint-André-de-Cubzac",
   content: "Elle aime et pratique la musique, boire des bières et régler les soucis de code. Elle apporte la sagesse et la communication.",
   available: true,
   gender: 'Femme cis',
@@ -109,8 +115,13 @@ friend6 = Friend.create!(first_name: "Anne-Cécile",
 
   Booking.create!(start_date: '2024-03-18',
     end_date: '2024-03-19',
-    user: user4,
+    user: user2,
+    friend: friend1,
+    total: 80)
+
+  Booking.create!(start_date: '2024-03-18',
+    end_date: '2024-03-19',
+    user: user3,
     friend: friend2,
-    total: 80,
-    status: "pending"
-  )
+    status: "pending",
+    total: 80)
