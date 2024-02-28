@@ -113,7 +113,7 @@ friend6 = Friend.create!(first_name: "Anne-Cécile",
   image_url: "https://i.imgur.com/Vu3aciE.jpeg",
   user: user1)
 
-  Booking.create!(start_date: '2024-03-18',
+  booking1 = Booking.create!(start_date: '2024-03-18',
     end_date: '2024-03-19',
     user: user2,
     friend: friend1,
@@ -125,3 +125,13 @@ friend6 = Friend.create!(first_name: "Anne-Cécile",
     friend: friend2,
     status: "pending",
     total: 80)
+
+  Review.create!(title: "nice"
+    booking: booking1,
+    status: "no ice",
+    total: 4)
+
+  Review.create!(title: "yeah"
+    booking: booking1,
+    status: "yeaaaaaay",
+    total: 3)
