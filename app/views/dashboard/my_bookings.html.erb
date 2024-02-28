@@ -9,7 +9,6 @@
       <ul>
         <% @bookings.each do |booking|  %>
           <li>
-            <%# <%= image_tag @friend.image_url, alt: @friend.first_name, class: "icon" %>
             <%= booking.friend.first_name %>
             <%= booking.start_date %>
             <%= booking.total_price %>
@@ -21,11 +20,16 @@
   </div>
 
   <div class="col-4">
-  <h3>Mes demandes de réservation</h3>
-          <div>
-            <button type="button" class="btn btn-success">Confirmer</button>
-            <button type="button" class="btn btn-warning">Pending</button>
-            <button type="button" class="btn btn-danger">Reject</button>
-          </div>
+    <h3>Mes demandes de réservation</h3>
+    <% @pending_bookings.each do |booking|%>
+      <% if booking.status == "pending" %>
+          <%= booking.friend.first_name %>
+      <% else  %>
+          <%= "No pending booking yet !" %>
+      <% end %>
+    <% end %>
+      <div>
+        <button type="button" class="btn btn-success">Confirmer</button>
+      </div>
   </div>
 </div>
