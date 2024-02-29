@@ -1,0 +1,32 @@
+body {background-color: $body-bg !important}
+
+.container {background-color: white !important}
+
+.btn {padding: 10px 25px;
+border-radius: 10px}
+
+quote {font-weight: 900;
+font-size: 24px;
+display: block}
+
+.fa-solid {
+  font-weight: 900;
+  width: 25px;
+  margin: 10px;
+  color: $orange;
+}
+
+a.btn.btn-danger {
+  transition: ease 1s;
+  border:0px;
+  align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+a.btn.btn-danger:hover {
+  background-color: #5CE1E6 !important;
+  color: #000000;
+  padding: 15px 50px;
+  transition: ease 1s;
+}
