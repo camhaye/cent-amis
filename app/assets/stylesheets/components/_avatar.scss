@@ -1,6 +1,7 @@
 .avatar {
-  width: 40px;
+  width: 50px;
   border-radius: 50%;
+  border:1px solid #f6f6f6;
 }
 .avatar-large {
   width: 56px;
@@ -28,6 +29,5 @@ object-fit: cover}
 .picon {height: 50px;
 width: 50px;
 object-fit: cover;
-border:2.5px solid white;
-box-shadow: 5px 5px 5px #eaeaea;
+border:2.5px solid #f6f6f6;
 border-radius: 50%}

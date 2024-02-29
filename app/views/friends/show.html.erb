@@ -29,16 +29,15 @@
           <i class="fa-regular fa-face-grin-stars"></i> Favorite
         <% end %>
       <% end %>
+      <%= link_to "Réserver #{@friend.first_name} !", new_friend_booking_path(@friend), class: "btn btn-danger" if @friend.user != current_user %>
     </center>
   </div>
   <div class="p-2"><h3><%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %> proposé.e par <%= @friend.user.pseudonyme %></h3>
   </div>
 </div>
-
-
-<div class="container d-flex justify-content-around flex-wrap mt-2" data-controller="toggle">
-<a data-action="click->toggle#fire" class="btn btn-danger">Modifier</a>
-<%= link_to "Supprimer", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" %>
+<div class="container d-flex justify-content-around flex-wrap" data-controller="toggle">
+<%= link_to "Modifier", "#", data: { action: "click->toggle#fire" }, class: "btn btn-danger" if @friend.user == current_user %>
+<%= link_to "Supprimer", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" if @friend.user == current_user %>
 <div class="d-none" style="width:100%" data-toggle-target="togglableElement">
 <%= simple_form_for @friend do |f| %>
   <%= f.input :first_name %>
@@ -55,7 +54,8 @@
 </div>
 </div>
 
-<div class="container bg-light"><% @friend.reviews.each do |review| %>
-<h5 class="d-flex justify-content-between mt-3"><%= review.title %> <div><%= review.rating %>/5</div></h5>
-<%= review.content %></br>
+<div class="container p-3"><h2 class="reviews">Avis des locataires</h2>
+<% @friend.reviews.each do |review| %>
+<h5 class="d-flex justify-content-between"><%= review.title %> <div><%= review.rating %>/5</div></h5>
+<%= review.content %></br></br>
 <% end %></div>

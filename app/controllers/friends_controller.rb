@@ -4,6 +4,13 @@ class FriendsController < ApplicationController
 
   def index
     @friends = Friend.all
+    @friends = @friends.filter_by_gender(params[:gender]) if params[:gender].present?
+    @friends = @friends.filter_by_city(params[:city]) if params[:city].present?
+    if params[:age].present?
+      age_range = Range.new(*params[:age].split("..").map(&:to_i))
+      @friends = @friends.filter_by_age_range(age_range)
+    end
+
     @markers = @friends.geocoded.map do |friend|
       {
         lat: friend.latitude,
