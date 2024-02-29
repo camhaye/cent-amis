@@ -6,22 +6,18 @@ h1 {width:100%}
 .favorite-link {
   text-decoration: none;
   color: #333;
-  height: 15px;
-  width: 15px;
-  transition: 0.1s; // Ajoute une transition en douceur pour la transformation
+  transition: transform .1s; // Ajoute une transition en douceur pour la transformation
 }
 
 .favorite-link:hover {
   color: #ff9800;
-  transform: scale(1.1); // Augmente la taille au survol
-}
-
-.favorite-link:active {
-  transform: scale(2.5); // Diminue la taille lorsqu'on clique
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);// Augmente la taille au survol
 }
 h2.reviews {text-shadow: 1px 1px #5ce1e6; color: white;background-color:#b1f1f3;
 padding: 10px;
 border-radius: 10px;
 border: 1px solid #5ce1e6;
-margin-bottom: 10px}
-
+margin-bottom: 10px;
+}
