@@ -1,11 +1,11 @@
 .footer {
-  background: #F4F4F4;
+  background: $blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 75px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: $grey;
 
   .footer-avatar{
     width: 50px;
@@ -19,6 +19,7 @@
 .footer-links {
   display: flex;
   align-items: center;
+  color: $grey;
 }
 .footer-links a {
   color: black;
