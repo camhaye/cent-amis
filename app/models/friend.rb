@@ -2,6 +2,7 @@ class Friend < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :reviews, :through => :bookings
+  has_many :favorite, dependent: :destroy
 
   validates :first_name, presence: true
   validates :location, presence: true

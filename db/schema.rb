@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_28_145750) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_29_134926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_145750) do
     t.string "status", default: "pending"
     t.index ["friend_id"], name: "index_bookings_on_friend_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.boolean "favorite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_favorites_on_friend_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "friends", force: :cascade do |t|
@@ -72,6 +82,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_145750) do
 
   add_foreign_key "bookings", "friends"
   add_foreign_key "bookings", "users"
+  add_foreign_key "favorites", "friends"
+  add_foreign_key "favorites", "users"
   add_foreign_key "friends", "users"
   add_foreign_key "reviews", "bookings"
 end
