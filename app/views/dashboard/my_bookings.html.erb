@@ -8,7 +8,7 @@
     <div class="container d-flex p-2">
       <ul>
         <% @bookings.each do |booking|  %>
-          <li>
+          <li><%= booking.friend.id %>
             <%= booking.friend.first_name %>
             <%= booking.start_date %>
             <%= booking.total_price %>

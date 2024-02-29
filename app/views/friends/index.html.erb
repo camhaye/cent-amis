@@ -1,21 +1,49 @@
 <div class="friends">
   <div class="container">
-    <h1>100 amis</h1>
-    <h2>Nos amis à disposition...</h2>
+    <center><%= image_tag "https://i.imgur.com/yzkDLz2.png", alt: "logo", style:"width:250px;margin-top:-35px" %>
+    <quote><i class="fa-solid fa-quote-left"></i> On a tous un ami dont on n'sait pas quoi, autant le louer ! <i class="fa-solid fa-quote-right"></i></quote></center>
   </div>
-  <div class="container d-flex">filtres</div>
-  <div class="container"><div style="width: 100%; height: 600px;"
+  <div class="container d-flex justify-content-between" style="padding: 20px"><div>
+    <%= form_with url: friends_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :city,
+            params[:city],
+            class: "form-control",
+            placeholder: "Rechercher par ville"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-danger", style: "margin-left: 10px" %>
+    <% end %>
+  </div>
+  <div>
+    <%= form_with url: friends_path, method: :get, class: "d-flex" do %>
+  <%= select_tag :genre,
+        options_for_select(["18 - 25 ans", "25 - 35 ans", "35 - 50 ans", "50 ans et +"], params[:genre]),
+        { include_blank: "Sélectionner une tranche d'âge", class: "form-control" }
+    %>
+  <%= submit_tag "Rechercher", class: "btn btn-danger", style: "margin-left: 10px" %>
+<% end %>
+  </div>
+  <div>
+    <%= form_with url: friends_path, method: :get, class: "d-flex" do %>
+  <%= select_tag :genre,
+        options_for_select(["Homme cis", "Femme cis", "Autre"], params[:genre]),
+        { include_blank: "Sélectionner un genre", class: "form-control" }
+    %>
+  <%= submit_tag "Rechercher", class: "btn btn-danger", style: "margin-left: 10px" %>
+<% end %>
+  </div></div>
+  <div class="container d-flex"><div style="width: 30%; height: 600px;position: sticky;top: 76px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div></div>
-  <div class="container d-flex flex-wrap" style="gap:10px">
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="container d-flex flex-wrap" style="gap:10px;width:70%">
     <% @friends.each do |friend| %>
       <%= link_to friend_path(friend), class: "friend_card" do %>
         <%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
-        <h5><%= friend.first_name %></h5>
+        <div style="width:100%;display:flex;justify-content: space-between;align-items: flex-end;padding: 0px 10px;"><h3><%= friend.first_name %></h3><h5><%= friend.age %> ans</h5></div>
         <div class="info"><i class="fa-solid fa-map-pin"></i> <%= friend.city %></div>
         <div class="info" style="text-align:right"><%= friend.price %> <i class="fa-solid fa-beer-mug-empty"></i></div>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>

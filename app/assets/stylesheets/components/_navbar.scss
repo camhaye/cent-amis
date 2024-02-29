@@ -11,5 +11,13 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 75px;
+  width: 50px;
+  border-radius:10px;
+  margin-right: 10px
+}
+
+.navbar-lewagon .navbar-brand {font-family: $headings-font-family;
+  color: $primary;
+  font-weight: 600;
+  font-size: 24px;
 }
