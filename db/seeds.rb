@@ -19,19 +19,22 @@ user1 = User.create!(pseudonyme: "Admin",
   email: "admin@mail.fr",
   password: 'password',
   password_confirmation: 'password',
-  image_url: "https://i.imgur.com/rBvxcII.jpeg")
-user2 = User.create!(pseudonyme: "Thomas",
+  image_url: "https://i.imgur.com/WdjuE7y.jpeg")
+user2 = User.create!(pseudonyme: "toto-du-33",
   email: "thomas@mail.fr",
   password: 'password',
-  password_confirmation: 'password')
-user3 = User.create!(pseudonyme: "Bastien",
+  password_confirmation: 'password',
+  image_url: "https://i.imgur.com/6VpQxPy.jpeg")
+user3 = User.create!(pseudonyme: "bast1",
    email: "bastien@mail.fr",
    password: 'password',
-   password_confirmation: 'password')
-user4 = User.create!(pseudonyme: "Camille",
+   password_confirmation: 'password',
+   image_url: "https://i.imgur.com/aUHzx5S.jpeg")
+user4 = User.create!(pseudonyme: "aceillm",
   email: "camille@mail.fr",
   password: 'password',
-  password_confirmation: 'password')
+  password_confirmation: 'password',
+  image_url: "https://i.imgur.com/NaQmXdS.png")
 
 puts 'User generated'
 
@@ -100,7 +103,7 @@ friend1 = Friend.create!(first_name: "Camille",
   user: user1)
 
   friend6 = Friend.create!(first_name: "Anne-Cécile",
-  city: "Saint-André-de-Cubzac",
+  city: "Talence",
   location: "48 Avenue de la République, 33240 Saint-André-de-Cubzac",
   content: "Elle aime et pratique la musique, boire des bières et régler les soucis de code. Elle apporte la sagesse et la communication.",
   available: true,
@@ -111,25 +114,42 @@ friend1 = Friend.create!(first_name: "Camille",
   image_url: "https://i.imgur.com/Vu3aciE.jpeg",
   user: user1)
 
+  friend7 = Friend.create!(first_name: "Benoît",
+    city: "Bergerac",
+    location: "48 Avenue de la République, 33240 Saint-André-de-Cubzac",
+    content: "Elle aime et pratique la musique, boire des bières et régler les soucis de code. Elle apporte la sagesse et la communication.",
+    available: true,
+    gender: 'Homme cis',
+    age: 35,
+    good_at: "Faire bouger le dancefloor sur un solo de guitare",
+    price: 20,
+    image_url: "https://i.imgur.com/hnRWoG7.jpeg",
+    user: user1)
+
+  friend8 = Friend.create!(first_name: "Clément",
+    city: "Fougères",
+    location: "20 Place Saint-Martin, 35133 Lécousse",
+    content: "Il aime le sucre, la musique électronique et sa petite fée. Il apporte le whisky, tu ramènes le coca ?",
+    available: true,
+    gender: 'Homme cis',
+    age: 28,
+    good_at: "Mettre douze sucres dans son thé le matin",
+    price: 25,
+    image_url: "https://i.imgur.com/BujBLFY.jpeg",
+    user: user1)
+
   booking1 = Booking.create!(start_date: '2024-03-18',
     end_date: '2024-03-19',
     user: user2,
-    friend: friend1,
+    friend: friend5,
     total: 80)
 
-  Booking.create!(start_date: '2024-03-18',
-    end_date: '2024-03-19',
-    user: user3,
-    friend: friend2,
-    status: "pending",
-    total: 80)
-
-  Review.create!(title: "nice",
+  Review.create!(title: "top!",
     booking: booking1,
-    content: "no ice",
+    content: "Super balade en forêt, il m'a montré tous ces coins à champignons.",
     rating: 4)
 
-  Review.create!(title: "yeah",
+  Review.create!(title: "meh",
     booking: booking1,
-    content: "yeaaaaaay",
-    rating: 3)
+    content: "Il n'a réglé aucun de mes problèmes de setup, je ne recommande pas...",
+    rating: 1)

@@ -1,7 +1,7 @@
 a.friend_card {width: calc(33% - 10px);
   border-radius: 10px;
   background-color: #f6f6f6;
-  margin-top:100px;
+  margin-top:75px;
   flex-wrap: wrap;
   justify-content: center;
   display:flex;
@@ -10,6 +10,7 @@ a.friend_card {width: calc(33% - 10px);
   text-decoration: none;
   color: black;
   border: 1px solid $orange;
+  height: fit-content;
   box-shadow: 5px 5px 5px#eeeeee;
 
     .icon {

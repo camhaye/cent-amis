@@ -3,6 +3,10 @@ class Friend < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, :through => :bookings
 
+  scope :filter_by_gender, ->(gender) { where(gender: gender) }
+  scope :filter_by_city, ->(city) { where(city: city) }
+  scope :filter_by_age_range, ->(age_range) { where(age: age_range) }
+
   validates :first_name, presence: true
   validates :location, presence: true
   validates :city, presence: true

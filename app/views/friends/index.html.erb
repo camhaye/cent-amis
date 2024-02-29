@@ -1,41 +1,31 @@
-<div class="friends">
+
   <div class="container">
     <center><%= image_tag "https://i.imgur.com/yzkDLz2.png", alt: "logo", style:"width:250px;margin-top:-35px" %>
-    <quote><i class="fa-solid fa-quote-left"></i> On a tous un ami dont on n'sait pas quoi, autant le louer ! <i class="fa-solid fa-quote-right"></i></quote></center>
+    <quote><i class="fa-solid fa-quote-left"></i> On a tous un ami dont on n'sait pas quoi faire, autant le louer ! <i class="fa-solid fa-quote-right"></i></quote></center>
   </div>
-  <div class="container d-flex justify-content-between" style="padding: 20px"><div>
-    <%= form_with url: friends_path, method: :get, class: "d-flex" do %>
+  <div class="container" style="padding: 20px">
+    <%= form_with url: friends_path, method: :get, class: "d-flex justify-content-between" do %>
       <%= text_field_tag :city,
             params[:city],
             class: "form-control",
             placeholder: "Rechercher par ville"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-danger", style: "margin-left: 10px" %>
-    <% end %>
-  </div>
-  <div>
-    <%= form_with url: friends_path, method: :get, class: "d-flex" do %>
-  <%= select_tag :genre,
-        options_for_select(["18 - 25 ans", "25 - 35 ans", "35 - 50 ans", "50 ans et +"], params[:genre]),
+  <%= select_tag :age,
+        options_for_select([['18 - 25 ans',(18..25)], ['25 - 35 ans',(25..35)], ['35 - 50 ans',(35..50)], ['18 - 25 ans',(50..100)]], params[:age]),
         { include_blank: "Sélectionner une tranche d'âge", class: "form-control" }
     %>
-  <%= submit_tag "Rechercher", class: "btn btn-danger", style: "margin-left: 10px" %>
-<% end %>
-  </div>
-  <div>
-    <%= form_with url: friends_path, method: :get, class: "d-flex" do %>
-  <%= select_tag :genre,
-        options_for_select(["Homme cis", "Femme cis", "Autre"], params[:genre]),
+  <%= select_tag :gender,
+        options_for_select(["Homme cis", "Femme cis", "Homme trans", "Femme trans", "Non-binaire"], params[:gender]),
         { include_blank: "Sélectionner un genre", class: "form-control" }
     %>
-  <%= submit_tag "Rechercher", class: "btn btn-danger", style: "margin-left: 10px" %>
+  <%= submit_tag "Rechercher", class: "btn btn-danger" %>
 <% end %>
-  </div></div>
+</div>
   <div class="container d-flex"><div style="width: 30%; height: 600px;position: sticky;top: 76px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  <div class="container d-flex flex-wrap" style="gap:10px;width:70%">
+  <div class="container d-flex flex-wrap justify-content-between" style="gap:10px;width:70%">
     <% @friends.each do |friend| %>
       <%= link_to friend_path(friend), class: "friend_card" do %>
         <%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
@@ -46,4 +36,3 @@
     <% end %>
     </div>
   </div>
-</div>
