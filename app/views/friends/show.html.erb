@@ -21,11 +21,11 @@
     <center>
       <%= link_to "Book this friend !", new_friend_booking_path(@friend), class: "btn btn-danger" %>
       <% if @favorite %>
-        <%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
+        <%= link_to toggle_favorite_friend_path(@friend), method: :post, class: 'favorite-link' do %>
           <i class="fa-regular fa-face-grin-stars"></i> Unfavorite
         <% end %>
       <% else %>
-        <%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
+        <%= link_to toggle_favorite_friend_path(@friend), method: :post, class: 'favorite-link' do %>
           <i class="fa-regular fa-face-grin-stars"></i> Favorite
         <% end %>
       <% end %>
