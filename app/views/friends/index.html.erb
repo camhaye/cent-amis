@@ -1,21 +1,22 @@
 <div class="friends">
   <div class="container">
-    <h1>100 amis</h1>
-    <h2>Nos amis à disposition...</h2>
+    <center><%= image_tag "https://i.imgur.com/yzkDLz2.png", alt: "logo", style:"width:250px;margin-top:-35px" %>
+    <quote><i class="fa-solid fa-quote-left"></i> On a tous un ami dont on n'sait pas quoi, autant le louer ! <i class="fa-solid fa-quote-right"></i></quote></center>
   </div>
   <div class="container d-flex">filtres</div>
-  <div class="container"><div style="width: 100%; height: 600px;"
+  <div class="container d-flex"><div style="width: 30%; height: 600px;position: sticky;top: 76px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div></div>
-  <div class="container d-flex flex-wrap" style="gap:10px">
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="container d-flex flex-wrap" style="gap:10px;width:70%">
     <% @friends.each do |friend| %>
       <%= link_to friend_path(friend), class: "friend_card" do %>
         <%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
-        <h5><%= friend.first_name %></h5>
+        <div style="width:100%"><center><h3><%= friend.first_name %></h3></center></div>
         <div class="info"><i class="fa-solid fa-map-pin"></i> <%= friend.city %></div>
         <div class="info" style="text-align:right"><%= friend.price %> <i class="fa-solid fa-beer-mug-empty"></i></div>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>
