@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :friends, dependent: :destroy
   # has_many :bookings, :through => :friends
+  has_many :favorite, dependent: :destroy
 end

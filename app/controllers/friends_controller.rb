@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :set_friend, only: [:show, :update, :destroy, :toggle_favorite]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :toggle_favorite]
 
   def index
     @friends = Friend.all
@@ -47,6 +47,18 @@ class FriendsController < ApplicationController
   def destroy
     @friend.destroy
     redirect_to friends_path
+  end
+
+  def toggle_favorite
+    @favorite = Favorite.find_by(friend: @friend)
+    @user = User.find(current_user.id)
+    if @favorite
+      @favorite.destroy
+      redirect_to friend_path(@friend), notice: 'Unfavorited successfully.'
+    else
+      @favorite = Favorite.create(friend: @friend, favorite: true, user: @user)
+      redirect_to friend_path(@friend), notice: 'Friend favorited'
+    end
   end
 
   private
