@@ -6,15 +6,17 @@
   <div class="col-8">
    <h3>Mes réservations</h3>
     <div class="container d-flex p-2">
-      <ul>
-        <% @bookings.each do |booking|  %>
-          <li><%= booking.friend.id %>
-            <%= booking.friend.first_name %>
-            <%= booking.start_date %>
-            <%= booking.total_price %>
-          </li>
+        <% @bookings.each do |booking| %>
+        <%= link_to friend_path(booking.friend), class: "friend_card" do %>
+          <%= image_tag booking.friend.image_url, alt: booking.friend.first_name, class: "icon" if booking.friend.image_url %>
+          <div style="width:100%;text-align:center"><h3><%= booking.friend.first_name %></h3></div>
+          <div>
+            <i class="fa-regular fa-calendar-days" style="color: #AF8875"></i> <%= booking.start_date %><br>
+            <i class="fa-regular fa-calendar-days" style="color: #AF8875"></i> <%= booking.end_date %>
+          </div>
+            <h5 style="width:100%;text-align:right">total: <%= booking.total_price %><i class="fa-solid fa-beer-mug-empty"></i></h5>
+          <% end %>
         <% end %>
-      </ul>
     </div>
   </div>
   <div class="col-4">
