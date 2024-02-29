@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_29_134926) do
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "friend_id", null: false
-    t.boolean "favorite"
+    t.boolean "favorite", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_favorites_on_friend_id"

@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   root to: "friends#index"
   resources :friends do
     resources :bookings, only: [:new, :create]
+    member do
+      match 'toggle_favorite', to: 'friends#toggle_favorite', via: [:get, :post]
+    end
   end
   resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :reviews, only: [:new, :create]
   end
+
   get 'dashboard/my_friends', to: 'dashboard#my_friends'
   get 'dashboard/my_bookings', to: 'dashboard#my_bookings'
   get 'dashboard/my_booked_friends', to: 'dashboard#my_booked_friends'

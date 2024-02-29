@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   before_action :set_user, only: %i[new create]
 
   def new
-    @friend = Friend.find(params[:friend_id])
     @booking = Booking.new
   end
 
@@ -18,10 +17,6 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-
   end
 
   private
