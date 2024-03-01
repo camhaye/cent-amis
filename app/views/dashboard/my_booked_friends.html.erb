@@ -1,37 +1,80 @@
-<h1>Mes ami.e.s réservé.e.s</h1>
-<div class="container mt-3">
-	<div class="row">
-		<div class="col-6">
-			<h3>Réservations acceptées</h3>
-			<% @booked_friends.each do |booked_friend| %>
-			<% if booked_friend.status == "accepted" %>
-			<li>
-				<% booked_friend.friend.first_name %>
-				<%= booked_friend.start_date %>
-				<%= booked_friend.end_date %>
-			</li>
-			<% end %>
-			<% end %>
-		</div>
-		<div class="col-6">
-			<h3>Demandes de réservation</h3>
-			<% @pending_bookings.each do |pending_booking|%>
-			<% if pending_booking.status == "pending" %>
-			<%= pending_booking.user.pseudonyme %>
-			<%= pending_booking.friend.image_url %>
-			<%= pending_booking.friend.first_name %>
-			<%= pending_booking.start_date %>
-			 |
-			<%= pending_booking.end_date %>
-			<%= pending_booking.total_price %>
-			<div>
-				<%= link_to "Accepter", confirm_booking_path(pending_booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
-				<button type="button" class="btn btn-danger">Refuser</button>
+<div class="container d-flex my-4">
+	<h1>Mes ami.e.s réservé.e.s</h1>
+</div>
+<div class="container row" style="margin: auto">
+	<div class="col-6">
+		<h3 style="width:100%">Réservations acceptées</h3>
+		<div class="container d-flex p-2" style="gap:10px">
+			<% @bookings.each do |booking| %>
+			<% if booking.status == "accepted" %>
+			<%= link_to friend_path(booking.friend), style: "text-decoration: none;width:50%;", class:"friend_card" do %>
+			<%= image_tag booking.friend.image_url, alt: booking.friend.first_name, class: "icon" if booking.friend.image_url %>
+			<div style="width:100%;">
+				<center>
+					<h3><%= booking.friend.first_name %></h3>
+				</center>
 			</div>
-			<% else  %>
-			<%= "Aucune demande en attente !" %>
+			<div class="d-flex" style="gap:15px;align-items: center !important">
+				<div>
+					<i class="fa-regular fa-calendar-days" style="color: #AF8875"></i>
+					<%= booking.start_date %>
+					<br>
+					<i class="fa-regular fa-calendar-days" style="color: #AF8875"></i>
+					<%= booking.end_date %>
+				</div>
+				<h5 style="border-left: 1px solid #AF8875;padding-left: 15px">
+					<center>
+						total:
+						<br>
+						<%= booking.total_price %>
+						<i style="margin:0; margin-left: 10px;width: fit-content" class="fa-solid fa-beer-mug-empty"></i>
+					</center>
+				</h5>
+			</div>
+			<% end %>
 			<% end %>
 			<% end %>
 		</div>
 	</div>
+	<div class="col-6">
+		<h3 style="width:100%">Demandes de réservation</h3>
+		<div class="container d-flex p-2" style="gap:10px">
+			<% @bookings.each do |booking| %>
+			<% if booking.status == "pending" %>
+			<div class="friend_card" style="width:50%;">
+				<%= link_to friend_path(booking.friend), style: "text-align:center;color: #5b5b5b;text-decoration: none;width:100%;" do %>
+				<%= image_tag booking.friend.image_url, alt: booking.friend.first_name, class: "icon" if booking.friend.image_url %>
+				<div style="width:100%;">
+					<center>
+						<h3><%= booking.friend.first_name %></h3>
+					</center>
+				</div>
+				<div class="d-flex justify-content-center" style="width:100%;gap:15px;align-items: center !important;margin-top:10px">
+					<div>
+						<i class="fa-regular fa-calendar-days" style="color: #AF8875"></i>
+						<%= booking.start_date %>
+						<br>
+						<i class="fa-regular fa-calendar-days" style="color: #AF8875"></i>
+						<%= booking.end_date %>
+					</div>
+					<h5 style="border-left: 1px solid #AF8875;padding-left: 15px">
+						<center>
+							total:
+							<br>
+							<%= booking.total_price %>
+							<i style="margin:0; margin-left: 10px;width: fit-content" class="fa-solid fa-beer-mug-empty"></i>
+						</center>
+					</h5>
+				</div>
+				<% end %>
+				<div>
+					<%= link_to "Accepter", confirm_booking_path(booking), class: "btn btn-danger", data: { turbo_method: :patch }, style: "display: inline-block;" %>
+					<%= link_to "Supprimer", "#", class: "btn btn-danger", style: "display: inline-block;" %>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
 </div>
