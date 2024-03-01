@@ -1,40 +1,50 @@
-<div class="text-center">
-  <h1 class="my-3">Réserver <%= @friend.first_name %></h1>
-</div>
 <div class="container text-center">
-  <div class="row align-items-center">
-  <div class="col-9">
-    <div class="container d-flex flex-wrap">
-      <h1 class="d-flex justify-content-end align-items-center m-4">
-        <div class="h3" style="margin: 0px;color:#9b9b9b">
-          <%= @friend.price %>
-          <i class="fa-solid fa-beer-mug-empty"></i> / jour
-        </div>
-      </h1>
-
-      <%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
-      <div class="infos">
-        <h4>
-          <%= @total if @total %> <i class="fa-solid fa-star"></i> Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %>
-        </h4>
-        <p>
-          <%= @friend.content if @friend.content %></br>
-          <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
-          <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
-          <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
-        </p>
-      </div>
-        <div class="mt-2"><h3><%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %> proposé.e par <%= @friend.user.pseudonyme %></h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-3 p-3 ">
-      <%= simple_form_for [@friend, @booking],  data: { controller: "datepicker" } do |f| %>
-        <%= f.input :start_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" => "openingDate" } } %>
-        <%= f.input :end_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" => "endingDate" } } %>
-        <%= f.submit "Soumettre la demande", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+	<h1 class="d-flex justify-content-between align-items-center m-4 pe-4">
+		Réserver
+		<%= @friend.first_name %>
+		<div class="h3" style="margin: 0px;color:#9b9b9b">
+			<%= @friend.price %>
+			<i class="fa-solid fa-beer-mug-empty"></i>
+			 / jour
+		</div>
+	</h1>
+	<div class="row align-items-center">
+		<div class="col-9" style="padding: 0px">
+			<div class="container d-flex flex-wrap">
+				<%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
+				<div class="infos">
+					<h4>Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %></h4>
+					<p>
+						<%= @friend.content if @friend.content %>
+						</br>
+						<i class="fa-solid fa-cake-candles"></i>
+						<%= @friend.age %>
+						 ans
+						</br>
+						<i class="fa-solid fa-venus-mars"></i>
+						<%= @friend.gender %>
+						</br>
+						<i class="fa-solid fa-map-pin"></i>
+						<%= @friend.location %>
+					</p>
+				</div>
+				<div class="p-2">
+					<h3>
+						<%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %>
+						 proposé.e par
+						<%= @friend.user.pseudonyme %>
+					</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-3 p-3 ">
+			<%= simple_form_for [@friend, @booking],  data: { controller: "datepicker" } do |f| %>
+			<%= f.input :start_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" =>
+			 "openingDate" } } %>
+			<%= f.input :end_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" =>
+			 "endingDate" } } %>
+			<%= f.submit "Soumettre la demande", class: "btn btn-danger" %>
+			<% end %>
+		</div>
+	</div>
 </div>

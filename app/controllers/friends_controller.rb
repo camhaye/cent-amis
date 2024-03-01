@@ -23,6 +23,7 @@ class FriendsController < ApplicationController
   def show
     @reviews = @friend.reviews
     @total = Review.total_rating(@reviews)
+    @favorite = current_user.favorites.find_by(friend: @friend)
   end
 
   def new
@@ -50,14 +51,14 @@ class FriendsController < ApplicationController
   end
 
   def toggle_favorite
-    @favorite = Favorite.find_by(friend: @friend)
-    @user = User.find(current_user.id)
+    @favorite = Favorite.find_by(friend: @friend, user: current_user)
+    @user = current_user
     if @favorite
       @favorite.destroy
-      redirect_to friend_path(@friend), notice: 'Unfavorited successfully.'
+      redirect_to request.referer, notice: 'Unfavorited successfully.'
     else
       @favorite = Favorite.create(friend: @friend, favorite: true, user: @user)
-      redirect_to friend_path(@friend), notice: 'Friend favorited'
+      redirect_to request.referer, notice: 'Friend favorited'
     end
   end
 

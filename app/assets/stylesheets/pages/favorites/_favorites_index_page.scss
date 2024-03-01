@@ -1,0 +1,20 @@
+#localisation{
+  margin: 0;
+}
+
+#price{
+  margin: 0;
+}
+
+
+.friend_card{
+  position: relative;
+
+  #favorite-icon{
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    scale: 1.7;
+  }
+
+}

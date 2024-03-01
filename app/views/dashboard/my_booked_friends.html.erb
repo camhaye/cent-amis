@@ -1,13 +1,37 @@
 <h1>Mes ami.e.s réservé.e.s</h1>
-
 <div class="container mt-3">
-<% @booked_friends.each do |booked_friend| %>
-<% if booked_friend.status == "accepted" %>
-  <li>
-  <% booked_friend.friend.first_name %>
-  <%= booked_friend.start_date %>
-  <%= booked_friend.end_date %>
-  </li>
-<% end %>
-<% end %>
+	<div class="row">
+		<div class="col-6">
+			<h3>Réservations acceptées</h3>
+			<% @booked_friends.each do |booked_friend| %>
+			<% if booked_friend.status == "accepted" %>
+			<li>
+				<% booked_friend.friend.first_name %>
+				<%= booked_friend.start_date %>
+				<%= booked_friend.end_date %>
+			</li>
+			<% end %>
+			<% end %>
+		</div>
+		<div class="col-6">
+			<h3>Demandes de réservation</h3>
+			<% @pending_bookings.each do |pending_booking|%>
+			<% if pending_booking.status == "pending" %>
+			<%= pending_booking.user.pseudonyme %>
+			<%= pending_booking.friend.image_url %>
+			<%= pending_booking.friend.first_name %>
+			<%= pending_booking.start_date %>
+			 |
+			<%= pending_booking.end_date %>
+			<%= pending_booking.total_price %>
+			<div>
+				<%= link_to "Accepter", confirm_booking_path(pending_booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
+				<button type="button" class="btn btn-danger">Refuser</button>
+			</div>
+			<% else  %>
+			<%= "Aucune demande en attente !" %>
+			<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>

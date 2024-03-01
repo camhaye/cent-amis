@@ -39,46 +39,8 @@ user4 = User.create!(pseudonyme: "aceillm",
 puts 'User generated'
 
 puts 'Generate Friends'
-friend1 = Friend.create!(first_name: "Camille",
-  city: "Toulouse",
-  location: "3 place Saint-Sernin, 31000 Toulouse",
-  content: "Elle aime la littérature, enseigner et passer des heures à regarder des films. Elle apporte la joie, la bonne humeur (ish) et les blagues bizarres.",
-  gender: "Femme cis",
-  available: true,
-  age: 25,
-  good_at: "Raconter et écrire de belles histoires",
-  price: 15,
-  image_url: "https://i.imgur.com/aUHzx5S.jpeg",
-  user: user1)
 
-
- friend2 = Friend.create!(first_name: "Bastien",
-  city: "Bayonne",
-  location: "Quai Dominique Roquebert, 64100 Bayonne",
-  content: "Il aime le surf, le pingpong (en ce moment et quand il gagne), la musique et sortir le soir. Il apporte les bières, la joie de vivre et les blagues de beauf.",
-  available: true,
-  gender: 'Homme cis',
-  age: 25,
-  good_at: "Faire de la musique",
-  price: 40,
-  image_url: "https://i.imgur.com/x1VLsma.jpeg",
-  user: user1)
-
-
- friend3 = Friend.create!(first_name: "Thomas",
-  city: "Bordeaux",
-  location: "Bordeaux",
-  content: "Il aime les sports d'eau vive, passer du temps avec ses proches et voyager. Il apporte la sérénité, la bonne humeur et s'illustre dans l'humour pince-sans-rire.",
-  available: true,
-  gender: 'Homme cis',
-  age: 45,
-  good_at: "Faire la cuisine",
-  price: 40,
-  image_url: "https://i.imgur.com/gOKIIk2.jpeg",
-  user: user1)
-
-
- friend4 = Friend.create!(first_name: "Romain",
+ friend1 = Friend.create!(first_name: "Romain",
   city: "Bordeaux",
   location: "Place de la Comédie, 33000 Bordeaux",
   content: "Il aime la compétition, coder et jouer aux jeux vidés. Il apporte la fraicheur et les blagues douteuses.",
@@ -90,7 +52,7 @@ friend1 = Friend.create!(first_name: "Camille",
   image_url: "https://i.imgur.com/qzchOUX.jpeg",
   user: user1)
 
- friend5 = Friend.create!(first_name: "Jonathan",
+ friend2 = Friend.create!(first_name: "Jonathan",
   city: "Bordeaux",
   location: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux",
   content: "Il aime la géologie, enseigner, voyager et passer du temps avec ses proches. Il apporte les bons conseils et fait un excellent good cop.",
@@ -102,7 +64,7 @@ friend1 = Friend.create!(first_name: "Camille",
   image_url: "https://i.imgur.com/alwDgX8.jpeg",
   user: user1)
 
-  friend6 = Friend.create!(first_name: "Anne-Cécile",
+  friend3 = Friend.create!(first_name: "Anne-Cécile",
   city: "Talence",
   location: "48 Avenue de la République, 33240 Saint-André-de-Cubzac",
   content: "Elle aime et pratique la musique, boire des bières et régler les soucis de code. Elle apporte la sagesse et la communication.",
@@ -114,19 +76,19 @@ friend1 = Friend.create!(first_name: "Camille",
   image_url: "https://i.imgur.com/Vu3aciE.jpeg",
   user: user1)
 
-  friend7 = Friend.create!(first_name: "Benoît",
+  friend4 = Friend.create!(first_name: "Benoît",
     city: "Bergerac",
-    location: "48 Avenue de la République, 33240 Saint-André-de-Cubzac",
-    content: "Elle aime et pratique la musique, boire des bières et régler les soucis de code. Elle apporte la sagesse et la communication.",
+    location: "19 Rue Neuve d'Argenson, 24100 Bergerac",
+    content: "Il aime la voile, l'aviation, les sports mécaniques (vroum vroum), les kebabs et faire le hater sur X. Il apporte la mauvaise humeur, des clopes de temps et temps et de la drogue.",
     available: true,
     gender: 'Homme cis',
     age: 35,
-    good_at: "Faire bouger le dancefloor sur un solo de guitare",
+    good_at: "Pour écrire des avis google assassins",
     price: 20,
     image_url: "https://i.imgur.com/hnRWoG7.jpeg",
     user: user1)
 
-  friend8 = Friend.create!(first_name: "Clément",
+  friend5 = Friend.create!(first_name: "Clément",
     city: "Fougères",
     location: "20 Place Saint-Martin, 35133 Lécousse",
     content: "Il aime le sucre, la musique électronique et sa petite fée. Il apporte le whisky, tu ramènes le coca ?",
@@ -134,29 +96,17 @@ friend1 = Friend.create!(first_name: "Camille",
     gender: 'Homme cis',
     age: 28,
     good_at: "Mettre douze sucres dans son thé le matin",
-    price: 25,
+    price: 35,
     image_url: "https://i.imgur.com/BujBLFY.jpeg",
     user: user1)
 
-  booking1 = Booking.create!(start_date: '2024-03-18',
-    end_date: '2024-03-19',
-    user: user2,
-    friend: friend5,
-    total: 80)
-
-    booking2 = Booking.create!(start_date: '2024-03-01',
-      end_date: '2024-03-03',
-      user: user2,
-      friend: friend2,
-      status: "accepted",
-      total: 80)
-
-  Review.create!(title: "top!",
-    booking: booking1,
-    content: "Super balade en forêt, il m'a montré tous ces coins à champignons.",
-    rating: 4)
-
-  Review.create!(title: "meh",
-    booking: booking1,
-    content: "Il n'a réglé aucun de mes problèmes de setup, je ne recommande pas...",
-    rating: 1)
+  friend6 = Friend.create!(first_name: "Marine",
+    city: "Libourne",
+    location: "42 Place Abel Surchamp, 33500 Libourne",
+    content: "Elle aime dessiner, et manger des morceaux de sucre, elle voudrait essayer les champignons hallucinogènes. Elle apporte un cadre, ses nombreuses connaissances en tout et les anecdotes de tournage de ses parents.",
+    available: true,
+    gender: 'Femme cis',
+    age: 25,
+    good_at: "S'énerver des bêtises de code de ses camarades",
+    price: 25,
+    user: user1)
