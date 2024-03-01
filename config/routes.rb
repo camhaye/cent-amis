@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :reviews, only: [:new, :create]
+    member do
+      patch 'confirm'
+    end
   end
 
   get 'dashboard/my_friends', to: 'dashboard#my_friends'
