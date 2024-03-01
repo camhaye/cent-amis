@@ -4,6 +4,9 @@
   position: sticky;
   top: 0;
   z-index: 9999999;
+  margin: 0 auto;
+  width: 1320px;
+  padding: 0px 1.5rem;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,7 +28,6 @@
 .user {display: flex;
   align-items: center;
 gap: 1.5rem;
-margin: 0 1.5rem;
 width: fit-content;
 
 .pseudo {    width: 100px;
