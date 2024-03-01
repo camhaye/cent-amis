@@ -1,61 +1,84 @@
 <div class="container d-flex flex-wrap">
-  <h1 class="d-flex justify-content-between align-items-center m-4">
-    <%= @friend.first_name %>
-    <div class="h3" style="margin: 0px;color:#9b9b9b">
-      <%= @friend.price %>
-      <i class="fa-solid fa-beer-mug-empty"></i> / jour
-    </div>
-  </h1>
-
-  <%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
-  <div class="infos">
-    <h4>
-      <%= @total if @total %> <i class="fa-solid fa-star"></i> Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %>
-    </h4>
-    <p>
-      <%= @friend.content if @friend.content %></br>
-      <i class="fa-solid fa-cake-candles"></i> <%= @friend.age %> ans</br>
-      <i class="fa-solid fa-venus-mars"></i> <%= @friend.gender %></br>
-      <i class="fa-solid fa-map-pin"></i> <%= @friend.location %>
-    </p>
-    <center>
-      <%= link_to "Réserver #{@friend.first_name} !", new_friend_booking_path(@friend), class: "btn btn-danger" if @friend.user != current_user %>
-      <div class="favorite-link mt-4"><% if @favorite %>
-        <%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
-          <i class="fa-regular fa-face-grin-stars"></i> Unfavorite
-        <% end %>
-      <% else %>
-        <%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
-          <i class="fa-regular fa-face-grin-stars"></i> Favorite
-        <% end %>
-      <% end %>
-      </div>
-    </center>
-  </div>
-  <div class="p-2"><h3><%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %> proposé.e par <%= @friend.user.pseudonyme %></h3>
-  </div>
+	<h1 class="d-flex justify-content-between align-items-center m-4">
+		<%= @friend.first_name %>
+		<div class="h3" style="margin: 0px;color:#9b9b9b">
+			<%= @friend.price %>
+			<i class="fa-solid fa-beer-mug-empty"></i>
+			 / jour
+		</div>
+	</h1>
+	<%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
+	<div class="infos">
+		<h4><%= @total if @total %><i class="fa-solid fa-star"></i> Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %></h4>
+		<p>
+			<%= @friend.content if @friend.content %>
+			</br>
+			<i class="fa-solid fa-cake-candles"></i>
+			<%= @friend.age %>
+			 ans
+			</br>
+			<i class="fa-solid fa-venus-mars"></i>
+			<%= @friend.gender %>
+			</br>
+			<i class="fa-solid fa-map-pin"></i>
+			<%= @friend.location %>
+		</p>
+		<center>
+			<%= link_to "Réserver #{@friend.first_name} !", new_friend_booking_path(@friend), class: "btn btn-danger" if @friend.user != current_user %>
+			<div class="favorite-link mt-4">
+				<% if @favorite %>
+				<%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
+				<i class="fa-regular fa-face-grin-stars"></i>
+				 Unfavorite
+				<% end %>
+				<% else %>
+				<%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
+				<i class="fa-regular fa-face-grin-stars"></i>
+				 Favorite
+				<% end %>
+				<% end %>
+			</div>
+		</center>
+	</div>
+	<div class="p-2">
+		<h3>
+			<%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %>
+			 proposé.e par
+			<%= @friend.user.pseudonyme %>
+		</h3>
+	</div>
 </div>
 <div class="container d-flex justify-content-around flex-wrap" data-controller="toggle">
-<%= link_to "Modifier", "#", data: { action: "click->toggle#fire" }, class: "btn btn-danger" if @friend.user == current_user %>
-<%= link_to "Supprimer", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" if @friend.user == current_user %>
-<div class="d-none" style="width:100%" data-toggle-target="togglableElement">
-<%= simple_form_for @friend do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :location %>
-  <%= f.input :content, :as => :text %>
-  <%= f.input :available, as: :select, collection: [['Oui',true], ['Non',false]] %>
-  <%= f.input :gender %>
-  <%= f.input :age, as: :numeric %>
-  <%= f.input :good_at %>
-  <%= f.input :image_url %>
-  <%= f.input :price, as: :numeric %>
-  <%= f.submit %>
-<% end %>
+	<%= link_to "Modifier", "#", data: { action: "click->toggle#fire" }, class: "btn btn-danger" if @friend.user == current_user %>
+	<%= link_to "Supprimer", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" if @friend.user == current_user %>
+	<div class="d-none" style="width:100%" data-toggle-target="togglableElement">
+		<%= simple_form_for @friend do |f| %>
+		<%= f.input :first_name %>
+		<%= f.input :location %>
+		<%= f.input :content, :as =>
+		 :text %>
+		<%= f.input :available, as: :select, collection: [['Oui',true], ['Non',false]] %>
+		<%= f.input :gender %>
+		<%= f.input :age, as: :numeric %>
+		<%= f.input :good_at %>
+		<%= f.input :image_url %>
+		<%= f.input :price, as: :numeric %>
+		<%= f.submit %>
+		<% end %>
+	</div>
 </div>
+<div class="container p-3">
+	<h2 class="reviews">Avis des locataires</h2>
+	<% @friend.reviews.each do |review| %>
+	<h5 class="d-flex justify-content-between">
+		<%= review.title %>
+		<div>
+			<%= review.rating %>
+			/5
+		</div>
+	</h5>
+	<%= review.content %>
+	</br>
+	</br>
+	<% end %>
 </div>
-
-<div class="container p-3"><h2 class="reviews">Avis des locataires</h2>
-<% @friend.reviews.each do |review| %>
-<h5 class="d-flex justify-content-between"><%= review.title %> <div><%= review.rating %>/5</div></h5>
-<%= review.content %></br></br>
-<% end %></div>

@@ -1,17 +1,28 @@
 <div class="user-friends">
-  <div class="container d-flex my-4">
-    <h1>Mes ami.e.s</h1>
-<%= link_to "Ajouter un ami", new_friend_path(), class:"btn btn-danger", style: "width: 30% !important;" %>
-
-</div>
-  <div class="container d-flex flex-wrap justify-content-between" style="gap:10px;padding:">
-    <% @friends.each do |friend| %>
-      <%= link_to friend_path(friend), class: "friend_card", style: "width: calc(25% - 10px)" do %>
-        <%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
-        <div style="width:100%;display:flex;justify-content: space-between;align-items: flex-end;padding: 0px 10px;"><h3><%= friend.first_name %></h3><h5><%= friend.age %> ans</h5></div>
-        <div class="info"><i class="fa-solid fa-map-pin"></i> <%= friend.city %></div>
-        <div class="info" style="text-align:right"><%= friend.price %> <i class="fa-solid fa-beer-mug-empty"></i></div>
-      <% end %>
-    <% end %>
-  </div>
+	<div class="container d-flex my-4">
+		<h1>Mes ami.e.s</h1>
+		<%= link_to "Ajouter un ami", new_friend_path(), class:"btn btn-danger", style: "width: 30% !important;" %>
+	</div>
+	<div class="container d-flex flex-wrap justify-content-between" style="gap:10px;padding:">
+		<% @friends.each do |friend| %>
+		<%= link_to friend_path(friend), class: "friend_card", style: "width: calc(25% - 10px)" do %>
+		<%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
+		<div style="width:100%;display:flex;justify-content: space-between;align-items: flex-end;padding: 0px 10px;">
+			<h3><%= friend.first_name %></h3>
+			<h5>
+				<%= friend.age %>
+				 ans
+			</h5>
+		</div>
+		<div class="info">
+			<i class="fa-solid fa-map-pin"></i>
+			<%= friend.city %>
+		</div>
+		<div class="info" style="text-align:right">
+			<%= friend.price %>
+			<i class="fa-solid fa-beer-mug-empty"></i>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
 </div>

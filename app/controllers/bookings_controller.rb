@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "accepted"
     @booking.save!
-    redirect_to friends_path
+    redirect_to dashboard_my_booked_friends_path
   end
 
   private
