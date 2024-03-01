@@ -19,6 +19,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to dashboard_my_bookings_path
+  end
+
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save!
+    redirect_to friends_path
+  end
+
   private
 
   def set_user
@@ -30,6 +42,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

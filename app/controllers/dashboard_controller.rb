@@ -13,4 +13,5 @@ class DashboardController < ApplicationController
   def my_booked_friends
     @booked_friends = Booking.joins(:friend).where(friends: { user_id: current_user })
   end
+
 end

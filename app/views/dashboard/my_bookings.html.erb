@@ -31,16 +31,16 @@
   
   <div class="col-4">
     <h3>Mes demandes de réservation</h3>
-    <% @pending_bookings.each do |booking|%>
-      <% if booking.status == "pending" %>
+    <% @pending_bookings.each do |pending_booking|%>
+      <% if pending_booking.status == "pending" %>
           <h3>Demande en attente</h3>
-          <%= booking.user.pseudonyme %>
-          <%= booking.friend.image_url %>
-          <%= booking.friend.first_name %>
-          <%= booking.start_date %> | <%= booking.end_date %>
-          <%= booking.total_price %>
+          <%= pending_booking.user.pseudonyme %>
+          <%= pending_booking.friend.image_url %>
+          <%= pending_booking.friend.first_name %>
+          <%= pending_booking.start_date %> | <%= pending_booking.end_date %>
+          <%= pending_booking.total_price %>
         <div>
-          <button type="button" class="btn btn-success">Accepter</button>
+          <%= link_to "Accepter", confirm_booking_path(pending_booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
           <button type="button" class="btn btn-danger">Refuser</button>
         </div>
       <% else  %>
