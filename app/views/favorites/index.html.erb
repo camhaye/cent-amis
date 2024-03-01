@@ -1,0 +1,29 @@
+<div class="containers text-center">
+  <h1>Mes favoris </h1>
+
+  <div class=" container d-flex flex-wrap w-75 gap-4">
+  <% @favoris.each do |favori| %>
+    <div class="col-1 friend_card">
+      <%= image_tag favori.friend.image_url, alt: favori.friend.first_name, class: "icon" if favori.friend.image_url %>
+      <%= link_to toggle_favorite_friend_path(favori.friend), method: :post do %>
+          <i id="favorite-icon" class="fa-regular fa-face-grin-stars"></i>
+        <% end %>
+      <div class="w-100 d-flex justify-content-between align-items-end px-2 ">
+        <h3><%= favori.friend.first_name %></h3>
+        <h5><%= favori.friend.age %> ans</h5>
+      </div>
+      <div class="w-100 d-flex justify-content-between align-items-end px-2 ">
+        <div>
+          <i id="localisation" class="fa-solid fa-map-pin"></i>
+          <%= favori.friend.city %>
+        </div>
+        <div>
+          <%= favori.friend.price %>
+          <i id="price" class="fa-solid fa-beer-mug-empty"></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+</div>
