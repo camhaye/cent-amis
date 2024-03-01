@@ -8,12 +8,16 @@
 			 / jour
 		</div>
 	</h1>
-	<div class="row align-items-center">
+	<div class="row align-items-start">
 		<div class="col-9" style="padding: 0px">
-			<div class="container d-flex flex-wrap">
+			<div class="container d-flex flex-wrap text-start">
 				<%= image_tag @friend.image_url, alt: @friend.first_name, class: "friend-avatar" if @friend.image_url %>
 				<div class="infos">
-					<h4>Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %></h4>
+        <div class="d-flex justify-content-start align-items-center">
+          <h4>
+            Le.a meilleur.e pour: <%= @friend.good_at.downcase if @friend.good_at %>
+          </h4>
+        </div>
 					<p>
 						<%= @friend.content if @friend.content %>
 						</br>
@@ -28,8 +32,8 @@
 						<%= @friend.location %>
 					</p>
 				</div>
-				<div class="p-2">
-					<h3>
+				<div class="mt-2 p-2">
+					<h3 class = "" >
 						<%= image_tag @friend.user.image_url, class: "picon" if @friend.user.image_url %>
 						 proposé.e par
 						<%= @friend.user.pseudonyme %>
@@ -39,9 +43,9 @@
 		</div>
 		<div class="col-3 p-3 ">
 			<%= simple_form_for [@friend, @booking],  data: { controller: "datepicker" } do |f| %>
-			<%= f.input :start_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" =>
+			<%= f.input :start_date, as: :string, placeholder: "Selectionner la date", label: "Date de départ", input_html: { data: { "datepicker-target" =>
 			 "openingDate" } } %>
-			<%= f.input :end_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" =>
+			<%= f.input :end_date, as: :string, placeholder: "Selectionner la date", label: "Date de fin", input_html: { data: { "datepicker-target" =>
 			 "endingDate" } } %>
 			<%= f.submit "Soumettre la demande", class: "btn btn-danger" %>
 			<% end %>
