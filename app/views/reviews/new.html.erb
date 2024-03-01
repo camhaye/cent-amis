@@ -1,11 +1,14 @@
-<h1>Laisser un commentaire</h1>
+<center><h1>Laisser un avis</h1>
 <br>
+<div class="review col-6">
 <%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :title, :label => "Titre" %>
-  <%= f.input :content, :label => "Commentaire", :as => :text %>
+  <%= f.input :content, :label => "Avis", :as => :text %>
   <%= f.input :rating, :label => "Note", as: :select, collection: 0..5 %>
   <br>
-  <div>
-  <%= f.submit  "Déposer votre commentaire", :class => "btn btn-danger" %>
+  <div class="gd">
+  <%= f.submit  "Poster votre avis", :class => "btn btn-danger" %>
   </div>
 <% end %>
+</div>
+</center>
