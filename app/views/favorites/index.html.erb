@@ -5,11 +5,11 @@
   <% @favoris.each do |favori| %>
     <div class="col-1 friend_card">
       <%= image_tag favori.friend.image_url, alt: favori.friend.first_name, class: "icon" if favori.friend.image_url %>
-      <%= link_to toggle_favorite_friend_path(favori.friend), method: :post do %>
+      <%= link_to toggle_favorite_friend_path(favori.friend), style: "color:#A73A00 !important", method: :post do %>
           <i id="favorite-icon" class="fa-regular fa-face-grin-stars"></i>
         <% end %>
       <div class="w-100 d-flex justify-content-between align-items-end px-2 ">
-        <h3><%= favori.friend.first_name %></h3>
+        <h3><%= link_to favori.friend.first_name, friend_path(favori.friend), style:"text-decoration: none;color:#000000" %></h3>
         <h5><%= favori.friend.age %> ans</h5>
       </div>
       <div class="w-100 d-flex justify-content-between align-items-end px-2 ">

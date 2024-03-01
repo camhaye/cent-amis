@@ -55,10 +55,10 @@ class FriendsController < ApplicationController
     @user = current_user
     if @favorite
       @favorite.destroy
-      redirect_to request.referer, notice: 'Unfavorited successfully.'
+      redirect_to request.referer, notice: 'Ami.e supprimé.e de la liste des favoris'
     else
       @favorite = Favorite.create(friend: @friend, favorite: true, user: @user)
-      redirect_to request.referer, notice: 'Friend favorited'
+      redirect_to request.referer, notice: 'Ami.e ajouté.e aux favoris'
     end
   end
 

@@ -29,7 +29,7 @@ user3 = User.create!(pseudonyme: "bast1",
    email: "bastien@mail.fr",
    password: 'password',
    password_confirmation: 'password',
-   image_url: "https://i.imgur.com/aUHzx5S.jpeg")
+   image_url: "https://i.imgur.com/Mr2E09v.png")
 user4 = User.create!(pseudonyme: "aceillm",
   email: "camille@mail.fr",
   password: 'password',
@@ -50,7 +50,7 @@ puts 'Generate Friends'
   good_at: "Gagner aux blind-tests",
   price: 30,
   image_url: "https://i.imgur.com/qzchOUX.jpeg",
-  user: user1)
+  user: user2)
 
  friend2 = Friend.create!(first_name: "Jonathan",
   city: "Bordeaux",
@@ -62,7 +62,7 @@ puts 'Generate Friends'
   good_at: "Déterminer l'origine d'un caillou",
   price: 60,
   image_url: "https://i.imgur.com/alwDgX8.jpeg",
-  user: user1)
+  user: user3)
 
   friend3 = Friend.create!(first_name: "Anne-Cécile",
   city: "Talence",
@@ -74,7 +74,7 @@ puts 'Generate Friends'
   good_at: "Faire bouger le dancefloor sur un solo de guitare",
   price: 5,
   image_url: "https://i.imgur.com/Vu3aciE.jpeg",
-  user: user1)
+  user: user4)
 
   friend4 = Friend.create!(first_name: "Benoît",
     city: "Bergerac",
@@ -86,7 +86,7 @@ puts 'Generate Friends'
     good_at: "Pour écrire des avis google assassins",
     price: 20,
     image_url: "https://i.imgur.com/hnRWoG7.jpeg",
-    user: user1)
+    user: user2)
 
   friend5 = Friend.create!(first_name: "Clément",
     city: "Fougères",
@@ -98,7 +98,7 @@ puts 'Generate Friends'
     good_at: "Mettre douze sucres dans son thé le matin",
     price: 35,
     image_url: "https://i.imgur.com/BujBLFY.jpeg",
-    user: user1)
+    user: user3)
 
   friend6 = Friend.create!(first_name: "Marine",
     city: "Libourne",
@@ -109,4 +109,4 @@ puts 'Generate Friends'
     age: 25,
     good_at: "S'énerver des bêtises de code de ses camarades",
     price: 25,
-    user: user1)
+    user: user4)

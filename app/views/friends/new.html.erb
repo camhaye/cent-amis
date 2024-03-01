@@ -1,9 +1,9 @@
 <%= simple_form_for @friend do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :city %>
-  <%= f.input :location %>
-  <%= f.input :gender %>
-  <%= f.input :age, as: :numeric %>
-  <%= f.input :price, as: :numeric %>
-  <%= f.submit %>
+  <%= f.input :first_name, label: "Prénom" %>
+  <%= f.input :city, label: "Ville" %>
+  <%= f.input :location, label: "Adresse" %>
+  <%= f.input :gender, label: "Genre", as: :select, collection: ["Homme cis", "Femme cis", "Homme trans", "Femme trans", "Non-binaire"] %>
+  <%= f.input :age, as: :numeric, label: "Âge" %>
+  <%= f.input :price, as: :numeric, label: "Prix" %>
+  <center><%= f.submit "Poster !", class: "btn btn-danger" %></center>
 <% end %>

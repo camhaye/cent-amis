@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.friend_id = @friend.id
     @booking.total = @booking.total_price
     if @booking.save
-      redirect_to dashboard_my_bookings_path, notice: "Booking confirmed ! Your total price : #{@booking.total}"
+      redirect_to dashboard_my_bookings_path, notice: "Réservation enregistrée ! Prix total : #{@booking.total}"
     else
       render :new, status: :unprocessable_entity
     end

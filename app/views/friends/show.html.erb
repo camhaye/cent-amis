@@ -47,18 +47,18 @@
 <div class="container d-flex justify-content-around flex-wrap" data-controller="toggle">
 	<%= link_to "Modifier", "#", data: { action: "click->toggle#fire" }, class: "btn btn-danger" if @friend.user == current_user %>
 	<%= link_to "Supprimer", friend_path(@friend), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr.e ?"}, class: "btn btn-danger" if @friend.user == current_user %>
-	<div class="d-none" style="width:100%" data-toggle-target="togglableElement">
-		<%= simple_form_for @friend do |f| %>
-		<%= f.input :first_name %>
-		<%= f.input :location %>
-		<%= f.input :content, :as =>
-		:text %>
-		<%= f.input :gender %>
-		<%= f.input :age, as: :numeric %>
-		<%= f.input :good_at %>
-		<%= f.input :image_url %>
-		<%= f.input :price, as: :numeric %>
-		<%= f.submit %>
+<div class="d-none" style="width:100%" data-toggle-target="togglableElement">
+    <%= simple_form_for @friend do |f| %>
+		<%= f.input :first_name, label: "Prénom" %>
+    <%= f.input :city, label: "Ville" %>
+		<%= f.input :location, label: "Adresse" %>
+		<%= f.input :content, :as => :text, label: "Description" %>
+		<%= f.input :gender, label: "Genre", as: :select, collection: ["Homme cis", "Femme cis", "Homme trans", "Femme trans", "Non-binaire"] %>
+    <%= f.input :age, as: :numeric, label: "Âge" %>
+		<%= f.input :good_at, label: "Son petit plus Périglioni" %>
+		<%= f.input :image_url, label: "Son joli minois" %>
+		<%= f.input :price, as: :numeric, label: "Prix" %>
+    <center><%= f.submit "Valider la modification !", class: "btn btn-danger" %></center>
 		<% end %>
 	</div>
 </div>

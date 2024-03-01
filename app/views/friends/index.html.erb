@@ -11,7 +11,7 @@
             placeholder: "Rechercher par ville"
         %>
   <%= select_tag :age,
-        options_for_select([['18 - 25 ans',(18..25)], ['25 - 35 ans',(25..35)], ['35 - 50 ans',(35..50)], ['18 - 25 ans',(50..100)]], params[:age]),
+        options_for_select([['18 - 25 ans',(18..25)], ['26 - 35 ans',(26..35)], ['36 - 50 ans',(36..50)], ['51 ans et +',(51..100)]], params[:age]),
         { include_blank: "Sélectionner une tranche d'âge", class: "form-control" }
     %>
   <%= select_tag :gender,
