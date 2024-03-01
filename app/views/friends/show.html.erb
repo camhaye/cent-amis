@@ -20,7 +20,8 @@
     </p>
     <center>
       <%= link_to "Réserver #{@friend.first_name} !", new_friend_booking_path(@friend), class: "btn btn-danger" if @friend.user != current_user %>
-      <div class="favorite-link mt-4"><% if @favorite %>
+      <div class="favorite-link mt-4">
+      <% if @favorite %>
         <%= link_to toggle_favorite_friend_path(@friend), method: :post do %>
           <i class="fa-regular fa-face-grin-stars"></i> Unfavorite
         <% end %>
