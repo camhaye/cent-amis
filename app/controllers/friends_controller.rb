@@ -23,7 +23,7 @@ class FriendsController < ApplicationController
   def show
     @reviews = @friend.reviews
     @total = Review.total_rating(@reviews)
-    @favorite = current_user.favorites.find_by(friend: @friend)
+    @favorite = current_user.favorites.find_by(friend: @friend) if user_signed_in?
   end
 
   def new
