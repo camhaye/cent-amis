@@ -6,11 +6,12 @@ class DashboardController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(user_id: current_user)
-    @pending_bookings = Booking.joins(:friend).where(friends: { user_id: current_user })
+    @pending_bookings = Booking.where(user_id: current_user, status: "pending")
+    @accepted_bookings = Booking.where(user_id: current_user, status: "accepted")
   end
 
   def my_booked_friends
+    @pending_bookings = Booking.joins(:friend).where(friends: { user_id: current_user })
     @booked_friends = Booking.joins(:friend).where(friends: { user_id: current_user })
   end
 

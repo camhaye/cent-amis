@@ -3,7 +3,7 @@
     <center><%= image_tag "https://i.imgur.com/yzkDLz2.png", alt: "logo", style:"width:250px;margin-top:-35px" %>
     <quote><i class="fa-solid fa-quote-left"></i> On a tous un ami dont on n'sait pas quoi faire, autant le louer ! <i class="fa-solid fa-quote-right"></i></quote></center>
   </div>
-  <div class="container" style="padding: 20px">
+  <div class="container my-4" style="padding: 20px">
     <%= form_with url: friends_path, method: :get, class: "d-flex justify-content-between" do %>
       <%= text_field_tag :city,
             params[:city],
