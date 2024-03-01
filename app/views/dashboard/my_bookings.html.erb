@@ -1,10 +1,10 @@
-<div class="container d-flex flex-wrap">
+<div class="container d-flex my-4">
 	<h1>Mes réservations</h1>
 </div>
 <div class="container row" style="margin: auto">
 	<div class="col-6">
-		<h3>Acceptées</h3>
-		<div class="container d-flex p-2">
+		<h3 style="width:100%">Réservations acceptées</h3>
+		<div class="container d-flex p-2" style="gap:10px">
 			<% @accepted_bookings.each do |booking| %>
 			<div class="friend_card" style="width:50%;">
 				<%= link_to friend_path(booking.friend), style: "text-decoration: none;text-align: center;color:#5b5b5b" do %>
@@ -39,7 +39,7 @@
 	</div>
 	<div class="col-6">
 		<h3>En attente</h3>
-		<div class="container d-flex p-2">
+		<div style="gap:10px" class="container d-flex p-2">
 			<% @pending_bookings.each do |booking| %>
 			<%= link_to friend_path(booking.friend), style: "text-decoration: none;width:50%;", class:"friend_card" do %>
 			<%= image_tag booking.friend.image_url, alt: booking.friend.first_name, class: "icon" if booking.friend.image_url %>
