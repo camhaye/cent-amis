@@ -1,16 +1,16 @@
 <div class="user-friends">
   <div class="container d-flex" content-align="center">
-    <h1>My friends</h1>
+    <h1>Mes ami.e.s</h1>
 <%= link_to "Créer un ami", new_friend_path(), class:"button btn-primary" %>
 
 </div>
-  <div class="container d-flex flex-wrap" style="gap:10px">
+  <div class="container d-flex flex-wrap justify-content-between" style="gap:10px">
     <% @friends.each do |friend| %>
-      <%= link_to friend_path(friend), class: "friend_card" do %>
+      <%= link_to friend_path(friend), class: "friend_card", style: "width: calc(25% - 10px)" do %>
         <%= image_tag friend.image_url, alt: friend.first_name, class: "icon" if friend.image_url %>
-          <h5><%= friend.first_name %></h5>
-          <div class="info"><i class="fa-solid fa-location-pin"></i> <%= friend.location %></div>
-          <div class="info" style="text-align:right"><%= friend.price %> <i class="fa-solid fa-beer-mug-empty"></i></div>
+        <div style="width:100%;display:flex;justify-content: space-between;align-items: flex-end;padding: 0px 10px;"><h3><%= friend.first_name %></h3><h5><%= friend.age %> ans</h5></div>
+        <div class="info"><i class="fa-solid fa-map-pin"></i> <%= friend.city %></div>
+        <div class="info" style="text-align:right"><%= friend.price %> <i class="fa-solid fa-beer-mug-empty"></i></div>
       <% end %>
     <% end %>
   </div>
