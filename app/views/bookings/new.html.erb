@@ -33,7 +33,7 @@
       <%= simple_form_for [@friend, @booking],  data: { controller: "datepicker" } do |f| %>
         <%= f.input :start_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" => "openingDate" } } %>
         <%= f.input :end_date, as: :string, placeholder: "Select Date", input_html: { data: { "datepicker-target" => "endingDate" } } %>
-        <%= f.submit "Submit booking", class: "btn btn-primary" %>
+        <%= f.submit "Soumettre la demande", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

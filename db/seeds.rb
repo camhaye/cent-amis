@@ -144,6 +144,13 @@ friend1 = Friend.create!(first_name: "Camille",
     friend: friend5,
     total: 80)
 
+    booking2 = Booking.create!(start_date: '2024-03-01',
+      end_date: '2024-03-03',
+      user: user2,
+      friend: friend2,
+      status: "accepted",
+      total: 80)
+
   Review.create!(title: "top!",
     booking: booking1,
     content: "Super balade en forêt, il m'a montré tous ces coins à champignons.",
